@@ -41,6 +41,16 @@
   
   
   <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+  <script>
+	(function(){
+		if('pw'){
+			if (prompt('Please enter the password') !== 'pw'){
+				alert('Wrong！');
+				history.back();
+			}
+		}
+	})();
+  </script>
 
 
 
@@ -86,7 +96,7 @@
 <meta property="og:site_name" content="Fearless World">
 <meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-29T14:11:18.495Z">
+<meta property="og:updated_time" content="2019-08-30T15:39:46.216Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hello World">
 <meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
@@ -147,7 +157,7 @@
 
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
-
+	
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
@@ -227,6 +237,16 @@
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-board">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-newspaper-o"></i> <br>
+            
+            board
           </a>
         </li>
       
@@ -509,6 +529,15 @@
             
 
             
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
 
           </nav>
 
@@ -571,7 +600,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">82</span>
+    <span title="Site words total count">86</span>
   
 </div>
 

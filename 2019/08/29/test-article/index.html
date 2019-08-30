@@ -41,6 +41,16 @@
   
   
   <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+  <script>
+	(function(){
+		if(''){
+			if (prompt('Please enter the password') !== ''){
+				alert('Wrong！');
+				history.back();
+			}
+		}
+	})();
+  </script>
 
 
 
@@ -68,7 +78,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="test,">
 
 
 
@@ -79,17 +89,18 @@
 
 
 
-<meta name="description" content="我们来试试看 www.github.com">
+<meta name="description" content="我们来试试看 www.github.com 1hexo clean  hexo generate">
+<meta name="keywords" content="test">
 <meta property="og:type" content="article">
 <meta property="og:title" content="test article">
 <meta property="og:url" content="http://yoursite.com/2019/08/29/test-article/index.html">
 <meta property="og:site_name" content="Fearless World">
-<meta property="og:description" content="我们来试试看 www.github.com">
+<meta property="og:description" content="我们来试试看 www.github.com 1hexo clean  hexo generate">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-29T14:20:00.432Z">
+<meta property="og:updated_time" content="2019-08-30T15:28:47.325Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="test article">
-<meta name="twitter:description" content="我们来试试看 www.github.com">
+<meta name="twitter:description" content="我们来试试看 www.github.com 1hexo clean  hexo generate">
 
 
 
@@ -147,7 +158,7 @@
 
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
-
+	
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
@@ -227,6 +238,16 @@
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-board">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-newspaper-o"></i> <br>
+            
+            board
           </a>
         </li>
       
@@ -324,7 +345,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  9
+                  13
                 </span>
               
 
@@ -351,6 +372,9 @@
       
         <p>我们来试试看</p>
 <p><a href="http://www.github.com" target="_blank" rel="noopener">www.github.com</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
+
+<p><code>hexo generate</code></p>
 
       
     </div>
@@ -392,6 +416,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/test/" rel="tag"><i class="fa fa-tag"></i> test</a>
+          
+        </div>
       
 
       
@@ -489,6 +519,15 @@
             
 
             
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
 
           </nav>
 
@@ -535,7 +574,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">82</span>
+    <span title="Site words total count">86</span>
   
 </div>
 
