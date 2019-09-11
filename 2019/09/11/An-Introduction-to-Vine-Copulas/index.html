@@ -105,7 +105,12 @@
 <meta property="og:image" content="http://yoursite.com/.com//6.png">
 <meta property="og:image" content="http://yoursite.com/.com//7.png">
 <meta property="og:image" content="http://yoursite.com/.com//8.png">
-<meta property="og:updated_time" content="2019-09-11T14:50:04.483Z">
+<meta property="og:image" content="http://yoursite.com/.com//10.png">
+<meta property="og:image" content="http://yoursite.com/.com//11.png">
+<meta property="og:image" content="http://yoursite.com/.com//12.png">
+<meta property="og:image" content="http://yoursite.com/.com//13.png">
+<meta property="og:image" content="http://yoursite.com/.com//14.png">
+<meta property="og:updated_time" content="2019-09-11T15:20:10.990Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="An Introduction to Vine Copulas">
 <meta name="twitter:description" content="一、 Copulas1. Copula函数的特点 Copula函数刻画连续的相关性  信息融合 多个深度神经网络   描述能力、可解释性强；  不会提供更多信息。   2.  2-dimensional copula 边际分布为均匀分布的二元分布函数 3. 刻画相关性  C is unique. Joint density: $f\left(x_{1}, x_{2}\right)=c_{12}\l">
@@ -354,7 +359,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  394
+                  636
                 </span>
               
 
@@ -428,16 +433,58 @@
 <p>每一行都是一棵树。</p>
 <h6 id="CV-Copula-Canonical-正则；典范"><a href="#CV-Copula-Canonical-正则；典范" class="headerlink" title="CV Copula (Canonical 正则；典范)"></a>CV Copula (Canonical 正则；典范)</h6><p><img src="/.com//8.png" alt="CV"></p>
 <h4 id="二、模型选择与参数估计"><a href="#二、模型选择与参数估计" class="headerlink" title="二、模型选择与参数估计"></a>二、模型选择与参数估计</h4><p>Model = structure(tree) + copula families + copula parameters</p>
-<h5 id="1-A-given-vine-tree-structure"><a href="#1-A-given-vine-tree-structure" class="headerlink" title="1. A given vine tree structure"></a>1. A given vine tree structure</h5><ul>
+<h5 id="1-三种问题形式"><a href="#1-三种问题形式" class="headerlink" title="1. 三种问题形式"></a>1. 三种问题形式</h5><ul>
+<li><p>Estimate the pair copula parameters for a given vine tree structure<br>and the pair copula families for each edge。</p>
+<p>即每条边上的Copula函数组都可能不同；</p>
+<p>Copula的参数一起估计。</p>
+</li>
+<li><p>Select the pair copula families and estimate the corresponding<br>parameters for a given vine tree structure</p>
+<p>一棵树上Copula函数族相同；</p>
+<p>一起估计参数。</p>
+</li>
+<li><p>Select and estimate all components of a regular vine</p>
+<p>直接估计整棵树的成分。</p>
+</li>
+</ul>
+<p><span style="background-color: #A5DEF1;">如何理解？</span></p>
+<h5 id="2-The-selection-of-tree-structure"><a href="#2-The-selection-of-tree-structure" class="headerlink" title="2. The selection of tree structure"></a>2. The selection of tree structure</h5><ul>
 <li>Optimal C-vines structure selection (Czado et al. (2011))</li>
 <li>Maximum Spanning Tree for R-vines (Dissmann et al. (2011))</li>
 </ul>
-<p><span style="background-color: #ff6600;">这里输入文字，自定义字体背景色</span></p>
-<h5 id="2-Copula-Families"><a href="#2-Copula-Families" class="headerlink" title="2. Copula Families"></a>2. Copula Families</h5><ul>
+<p><span style="background-color: #A5DEF1;">如何体现Optimal？</span></p>
+<h5 id="3-Copula-Families"><a href="#3-Copula-Families" class="headerlink" title="3. Copula Families"></a>3. Copula Families</h5><ul>
 <li>Elliptical copulas (Gauss, t)</li>
 <li>one-parametric Archimedean copulas (Clayton, Gumbel, Frank,Joe,…)</li>
 <li>two-parametric Archimedean copulas (BB1, BB7,…)</li>
 </ul>
+<h5 id="4-Copula-parameter-estimate"><a href="#4-Copula-parameter-estimate" class="headerlink" title="4. Copula parameter estimate"></a>4. Copula parameter estimate</h5><ul>
+<li>Sequential estimation</li>
+<li>Maximum likelihood estimation</li>
+<li>Bayesian estimation</li>
+</ul>
+<p><span style="background-color: #A5DEF1;">是否有其他更有效的方法？（极大似然很慢）</span></p>
+<h5 id="5-The-selection-of-Copula"><a href="#5-The-selection-of-Copula" class="headerlink" title="5. The selection of Copula"></a>5. The selection of Copula</h5><p>Classical approach:</p>
+<ul>
+<li>AIC or Vuong test</li>
+<li>Check for truncation possibilities (Brechmann et al. (2012))<br>…</li>
+</ul>
+<p>Bayesian approach:</p>
+<ul>
+<li>Reversible jump (RJ) MCMC (Min and Czado (2011))</li>
+<li>MCMC with model indicators (Smith et al. (2010))<br>…</li>
+</ul>
+<h5 id="6-Choice-for-edge-weights-直接估计相关性"><a href="#6-Choice-for-edge-weights-直接估计相关性" class="headerlink" title="6. Choice for edge weights(直接估计相关性)"></a>6. Choice for edge weights(直接估计相关性)</h5><ul>
+<li>Kendall’s $\tau$;</li>
+<li>p-values of Goodness-of-Fit tests.</li>
+</ul>
+<p><span style="background-color: #A5DEF1;">何时使用？</span></p>
+<h4 id="三、Bayes估计中的例子"><a href="#三、Bayes估计中的例子" class="headerlink" title="三、Bayes估计中的例子"></a>三、Bayes估计中的例子</h4><h5 id="1-目标"><a href="#1-目标" class="headerlink" title="1. 目标"></a>1. 目标</h5><p><img src="/.com//10.png" alt="aim"></p>
+<p><img src="/.com//11.png" alt="aim"></p>
+<h5 id="2-非参数法估计密度函数"><a href="#2-非参数法估计密度函数" class="headerlink" title="2. 非参数法估计密度函数"></a>2. 非参数法估计密度函数</h5><h6 id="直方图"><a href="#直方图" class="headerlink" title="直方图"></a>直方图</h6><p><img src="/.com//12.png" alt="12"></p>
+<h6 id="核密度函数估计"><a href="#核密度函数估计" class="headerlink" title="核密度函数估计"></a>核密度函数估计</h6><p><img src="/.com//13.png" alt="13"></p>
+<p><img src="/.com//14.png" alt="14"></p>
+<h4 id="推荐参考资料"><a href="#推荐参考资料" class="headerlink" title="推荐参考资料"></a>推荐参考资料</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">H Joe.(2013)</span><br><span class="line">Models for construction of multivariate dependencea comparison study.</span><br><span class="line">Copulae and Multivariate Probability Distributions in Finance, Routledge, 2013. 43-64.</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -628,7 +675,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、-Copulas"><span class="nav-number">1.</span> <span class="nav-text">一、 Copulas</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-Copula函数的特点"><span class="nav-number">1.1.</span> <span class="nav-text">1. Copula函数的特点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-dimensional-copula"><span class="nav-number">1.2.</span> <span class="nav-text">2.  2-dimensional copula</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-刻画相关性"><span class="nav-number">1.3.</span> <span class="nav-text">3. 刻画相关性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-Pair-copula-construction-PCC"><span class="nav-number">1.4.</span> <span class="nav-text">4. Pair-copula construction (PCC)</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#3-Dimensions"><span class="nav-number">1.4.1.</span> <span class="nav-text">3 Dimensions</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#n-Dimensions"><span class="nav-number">1.4.2.</span> <span class="nav-text">n Dimensions</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-Vine-Copula"><span class="nav-number">2.</span> <span class="nav-text">5. Vine Copula</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#RV-Copula-Regula"><span class="nav-number">2.0.1.</span> <span class="nav-text">RV Copula(Regula)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#DV-Copula"><span class="nav-number">2.0.2.</span> <span class="nav-text">DV Copula</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#CV-Copula-Canonical-正则；典范"><span class="nav-number">2.0.3.</span> <span class="nav-text">CV Copula (Canonical 正则；典范)</span></a></li></ol></li></ol><li class="nav-item nav-level-4"><a class="nav-link" href="#二、模型选择与参数估计"><span class="nav-number">3.</span> <span class="nav-text">二、模型选择与参数估计</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-A-given-vine-tree-structure"><span class="nav-number">3.1.</span> <span class="nav-text">1. A given vine tree structure</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-Copula-Families"><span class="nav-number">3.2.</span> <span class="nav-text">2. Copula Families</span></a></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、-Copulas"><span class="nav-number">1.</span> <span class="nav-text">一、 Copulas</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-Copula函数的特点"><span class="nav-number">1.1.</span> <span class="nav-text">1. Copula函数的特点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-dimensional-copula"><span class="nav-number">1.2.</span> <span class="nav-text">2.  2-dimensional copula</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-刻画相关性"><span class="nav-number">1.3.</span> <span class="nav-text">3. 刻画相关性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-Pair-copula-construction-PCC"><span class="nav-number">1.4.</span> <span class="nav-text">4. Pair-copula construction (PCC)</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#3-Dimensions"><span class="nav-number">1.4.1.</span> <span class="nav-text">3 Dimensions</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#n-Dimensions"><span class="nav-number">1.4.2.</span> <span class="nav-text">n Dimensions</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-Vine-Copula"><span class="nav-number">2.</span> <span class="nav-text">5. Vine Copula</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#RV-Copula-Regula"><span class="nav-number">2.0.1.</span> <span class="nav-text">RV Copula(Regula)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#DV-Copula"><span class="nav-number">2.0.2.</span> <span class="nav-text">DV Copula</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#CV-Copula-Canonical-正则；典范"><span class="nav-number">2.0.3.</span> <span class="nav-text">CV Copula (Canonical 正则；典范)</span></a></li></ol></li></ol><li class="nav-item nav-level-4"><a class="nav-link" href="#二、模型选择与参数估计"><span class="nav-number">3.</span> <span class="nav-text">二、模型选择与参数估计</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-三种问题形式"><span class="nav-number">3.1.</span> <span class="nav-text">1. 三种问题形式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-The-selection-of-tree-structure"><span class="nav-number">3.2.</span> <span class="nav-text">2. The selection of tree structure</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-Copula-Families"><span class="nav-number">3.3.</span> <span class="nav-text">3. Copula Families</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-Copula-parameter-estimate"><span class="nav-number">3.4.</span> <span class="nav-text">4. Copula parameter estimate</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-The-selection-of-Copula"><span class="nav-number">3.5.</span> <span class="nav-text">5. The selection of Copula</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-Choice-for-edge-weights-直接估计相关性"><span class="nav-number">3.6.</span> <span class="nav-text">6. Choice for edge weights(直接估计相关性)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、Bayes估计中的例子"><span class="nav-number">4.</span> <span class="nav-text">三、Bayes估计中的例子</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-目标"><span class="nav-number">4.1.</span> <span class="nav-text">1. 目标</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-非参数法估计密度函数"><span class="nav-number">4.2.</span> <span class="nav-text">2. 非参数法估计密度函数</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#直方图"><span class="nav-number">4.2.1.</span> <span class="nav-text">直方图</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#核密度函数估计"><span class="nav-number">4.2.2.</span> <span class="nav-text">核密度函数估计</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#推荐参考资料"><span class="nav-number">5.</span> <span class="nav-text">推荐参考资料</span></a></li></div>
             
 
           </div>
@@ -662,7 +709,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">626</span>
+    <span title="Site words total count">873</span>
   
 </div>
 
