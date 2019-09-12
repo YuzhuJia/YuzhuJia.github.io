@@ -78,7 +78,7 @@
 
 
 
-  <meta name="keywords" content="blog,">
+  <meta name="keywords" content="RL,">
 
 
 
@@ -89,18 +89,25 @@
 
 
 
-<meta name="description" content="新建文章：hexo new &amp;quot;article title&amp;quot; orhexo n &amp;quot;xxxx&amp;quot; 清除缓存：hexo clean or hexo c 生成：hexo generate or hexo g 部署：hexo deploy or hexo d 实时窗口：hexo server or hexo s (‘ctrl + c’关闭server)) 中文首行缩进">
-<meta name="keywords" content="blog">
+<meta name="description" content="REINFORCEMENT LEARNING: AN INTRODUCTIONRichard S. Sutton and Andrew G. Barto Chapter 1 Introduction1. Main Assumptions Agent can sense the state of its environment; Agent can take actions that affect">
+<meta name="keywords" content="RL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="搭建个人博客">
-<meta property="og:url" content="https://yuzhujia.github.io/2019/09/11/搭建个人博客/index.html">
+<meta property="og:title" content="RL Chap1 Introduction">
+<meta property="og:url" content="https://yuzhujia.github.io/2019/09/12/RL-Chap1-Introduction/index.html">
 <meta property="og:site_name" content="Fearless World">
-<meta property="og:description" content="新建文章：hexo new &amp;quot;article title&amp;quot; orhexo n &amp;quot;xxxx&amp;quot; 清除缓存：hexo clean or hexo c 生成：hexo generate or hexo g 部署：hexo deploy or hexo d 实时窗口：hexo server or hexo s (‘ctrl + c’关闭server)) 中文首行缩进">
+<meta property="og:description" content="REINFORCEMENT LEARNING: AN INTRODUCTIONRichard S. Sutton and Andrew G. Barto Chapter 1 Introduction1. Main Assumptions Agent can sense the state of its environment; Agent can take actions that affect">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-11T15:24:09.500Z">
+<meta property="og:image" content="https://i.loli.net/2019/09/12/n7Wsb5pyjtFoSaf.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/12/eQhcDidmFoJbZ1V.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/12/DsLFY54ZNBRa6ye.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/12/PCe4lEYypZisRmV.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/12/kC7PmqiZvnxd2ap.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/12/pafDkPHXdzqSgC2.png">
+<meta property="og:updated_time" content="2019-09-12T02:30:26.640Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="搭建个人博客">
-<meta name="twitter:description" content="新建文章：hexo new &amp;quot;article title&amp;quot; orhexo n &amp;quot;xxxx&amp;quot; 清除缓存：hexo clean or hexo c 生成：hexo generate or hexo g 部署：hexo deploy or hexo d 实时窗口：hexo server or hexo s (‘ctrl + c’关闭server)) 中文首行缩进">
+<meta name="twitter:title" content="RL Chap1 Introduction">
+<meta name="twitter:description" content="REINFORCEMENT LEARNING: AN INTRODUCTIONRichard S. Sutton and Andrew G. Barto Chapter 1 Introduction1. Main Assumptions Agent can sense the state of its environment; Agent can take actions that affect">
+<meta name="twitter:image" content="https://i.loli.net/2019/09/12/n7Wsb5pyjtFoSaf.png">
 
 
 
@@ -130,14 +137,14 @@
 
 
 
-  <link rel="canonical" href="https://yuzhujia.github.io/2019/09/11/搭建个人博客/">
+  <link rel="canonical" href="https://yuzhujia.github.io/2019/09/12/RL-Chap1-Introduction/">
 
 
 
 
 
 <link href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css" rel="stylesheet">
-  <title>搭建个人博客 | Fearless World</title>
+  <title>RL Chap1 Introduction | Fearless World</title>
   
 
 
@@ -284,7 +291,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://yuzhujia.github.io/2019/09/11/搭建个人博客/">
+    <link itemprop="mainEntityOfPage" href="https://yuzhujia.github.io/2019/09/12/RL-Chap1-Introduction/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="YuzhuJia">
@@ -301,7 +308,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">搭建个人博客</h1>
+          <h1 class="post-title" itemprop="name headline">RL Chap1 Introduction</h1>
         
 
         <div class="post-meta">
@@ -313,8 +320,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-11T16:39:10+08:00">
-                2019-09-11
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-12T09:34:11+08:00">
+                2019-09-12
               </time>
             
 
@@ -345,7 +352,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  237
+                  586
                 </span>
               
 
@@ -370,17 +377,97 @@
       
 
       
-        <p>新建文章：<code>hexo new &quot;article title&quot;</code> or<code>hexo n &quot;xxxx&quot;</code></p>
-<p>清除缓存：<code>hexo clean</code> or <code>hexo c</code></p>
-<p>生成：<code>hexo generate</code> or <code>hexo g</code></p>
-<p>部署：<code>hexo deploy</code> or <code>hexo d</code></p>
-<p>实时窗口：<code>hexo server</code> or <code>hexo s</code> (‘ctrl + c’<em>关闭</em>server))</p>
-<p>中文首行缩进</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">半方大的空白`&amp;ensp;`或`&amp;#8194`;</span><br><span class="line">全方大的空白`&amp;emsp;`或`&amp;#8195`;</span><br><span class="line">不断行的空白格`&amp;nbsp;`或`&amp;#160`;</span><br></pre></td></tr></table></figure>
-
-<p>字体大小颜色</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;font size=4 &gt; 这里输入文字，自定义字体大小 &lt;/font&gt;</span><br><span class="line">&lt;font color=&quot;#FF0000&quot;&gt; 这里输入文字，自定义字体颜色&lt;/font&gt;</span><br><span class="line">&lt;span style=&quot;background-color: #ff6600;&quot;&gt;这里输入文字，自定义字体背景色&lt;/span&gt;</span><br><span class="line">&lt;font color=&quot;#000000&quot; size=4&gt;&lt;span style=&quot;background-color: #ADFF2F;&quot;&gt;这是综合起来的效果 &lt;/span&gt;&lt;/font&gt;</span><br><span class="line">&lt;font color=&quot;#FFFFFF&quot; size=4&gt;&lt;span style=&quot;background-color: #68228B;&quot;&gt;这是综合起来的效果2 &lt;/span&gt;&lt;/font&gt;</span><br></pre></td></tr></table></figure>
-
+        <h4 id="REINFORCEMENT-LEARNING-AN-INTRODUCTION"><a href="#REINFORCEMENT-LEARNING-AN-INTRODUCTION" class="headerlink" title="REINFORCEMENT LEARNING: AN INTRODUCTION"></a>REINFORCEMENT LEARNING: AN INTRODUCTION</h4><p>Richard S. Sutton and Andrew G. Barto</p>
+<h4 id="Chapter-1-Introduction"><a href="#Chapter-1-Introduction" class="headerlink" title="Chapter 1 Introduction"></a>Chapter 1 Introduction</h4><h5 id="1-Main-Assumptions"><a href="#1-Main-Assumptions" class="headerlink" title="1. Main Assumptions"></a>1. Main Assumptions</h5><ul>
+<li>Agent can <u>sense</u> the state of its environment;</li>
+<li>Agent can take <u>actions</u> that <u>affect</u> the state;</li>
+<li>Agent has <u>goals relating to</u> the state of the <u>environment</u>.</li>
+</ul>
+<p><img src="https://i.loli.net/2019/09/12/n7Wsb5pyjtFoSaf.png" alt="1.png"></p>
+<h5 id="2-Main-Features"><a href="#2-Main-Features" class="headerlink" title="2. Main Features"></a>2. Main Features</h5><ul>
+<li><p>Trial-and-error search</p>
+<p>最初的学习器是不知如何做决策的，通过试错来学习。</p>
+</li>
+<li><p>Delayed reward </p>
+<p>未来的，隐性的奖励，但在目标中需要考虑的。</p>
+</li>
+<li><p>Trade-off between exploration and exploitation</p>
+<ul>
+<li>exploration：类似最速梯度下降不选择梯度负方向，避免落入局部最小值；</li>
+<li>exploitation：是一个greedy的过程，每步最大化。</li>
+</ul>
+</li>
+</ul>
+<h5 id="3-Unsupervised-learning-v-s-Reinforcement-learning"><a href="#3-Unsupervised-learning-v-s-Reinforcement-learning" class="headerlink" title="3. Unsupervised learning v.s Reinforcement learning"></a>3. Unsupervised learning v.s Reinforcement learning</h5><ul>
+<li>RL是无标签的，需要从环境反馈的reward猜测之前采取的那一步是好是坏；</li>
+<li>Unsupervised Learning 是寻找无标签样本间的关系；</li>
+<li>RL 是有一个明确目标函数的，有时即使我们找到了样本间的关系，完全有可能仍无法使目标最大；</li>
+<li>RL 与时间t密切相关。</li>
+</ul>
+<h5 id="4-Main-Elements"><a href="#4-Main-Elements" class="headerlink" title="4. Main Elements"></a>4. Main Elements</h5><h6 id="Policy-main"><a href="#Policy-main" class="headerlink" title="Policy (main)"></a>Policy (main)</h6><ul>
+<li><p>离散，有限情形(本书第一部分)</p>
+<p><img src="https://i.loli.net/2019/09/12/eQhcDidmFoJbZ1V.png" alt="2.png"></p>
+</li>
+<li><p>连续情形(本书第二部分)</p>
+<p>$f:$ {State} $\to$ {Action}​</p>
+<p>$f:$ {State} $\times$ {Reward} $\to$ {Action}</p>
+</li>
+</ul>
+<h6 id="Reward-signal"><a href="#Reward-signal" class="headerlink" title="Reward signal"></a>Reward signal</h6><ul>
+<li>Given directly by the environment;</li>
+<li>$h:$  {State} $\times$ {Action} $\to$ {Reward}.</li>
+</ul>
+<h6 id="Value-function"><a href="#Value-function" class="headerlink" title="Value function"></a>Value function</h6><ul>
+<li>Must be estimated;</li>
+<li>Total amount of reward in future.</li>
+</ul>
+<p><span style="background-color: #A5DEF1;">How to estimate？</span></p>
+<h6 id="Environment-model"><a href="#Environment-model" class="headerlink" title="Environment model"></a>Environment model</h6><ul>
+<li><u>Only needed</u> in model-based methods；</li>
+<li>Model-Free.</li>
+</ul>
+<h5 id="5-以井字棋为例"><a href="#5-以井字棋为例" class="headerlink" title="5. 以井字棋为例"></a>5. 以井字棋为例</h5><h6 id="可选方案"><a href="#可选方案" class="headerlink" title="可选方案"></a>可选方案</h6><ul>
+<li><p>minimax</p>
+<p>无法实现伪败设陷阱。</p>
+</li>
+<li><p>dynamic programming</p>
+<p>需要完全了解环境；</p>
+<p>实际问题中，用状态转移概率的无偏估计(和RL类似)。</p>
+</li>
+<li><p>evolutionary method</p>
+<p>生成多个棋手对抗，选择胜率最大的那个棋手；</p>
+<p>生成后棋手不再变化，也即对抗过程中不变。</p>
+</li>
+<li><p>reinforcement learning</p>
+<p>时间差分TD的方法；</p>
+<p>更新Value Function.</p>
+<p><img src="https://i.loli.net/2019/09/12/DsLFY54ZNBRa6ye.png" alt="6.png"></p>
+</li>
+</ul>
+<p><span style="background-color: #A5DEF1;">模拟退火？</span></p>
+<h6 id="TD-learning-method"><a href="#TD-learning-method" class="headerlink" title="TD learning method"></a>TD learning method</h6><ul>
+<li>同一情形下，先后手的Value是不同的</li>
+</ul>
+<p><img src="https://i.loli.net/2019/09/12/PCe4lEYypZisRmV.png" alt="4.png"></p>
+<ul>
+<li><p>初值是一种猜测</p>
+<p><img src="https://i.loli.net/2019/09/12/kC7PmqiZvnxd2ap.png" alt="3.png"></p>
+<p>复杂情形中，不必一次性给完，可以一边下一边给。</p>
+</li>
+<li><p>更新路径</p>
+<p><img src="https://i.loli.net/2019/09/12/pafDkPHXdzqSgC2.png" alt="5.png"></p>
+</li>
+</ul>
+<p>  ​    $$V(s) \leftarrow V(s)+\alpha\left[V\left(s^{\prime}\right)-V(s)\right]$$</p>
+<ul>
+<li>再下一次如果赢率大，那本次“权重”增大。(凸组合)</li>
+<li>但这个权重的改变只会在下一轮游戏中起作用，本轮游戏不会再经历这个状态了。不同于Exploration。</li>
+</ul>
+<h6 id="Self-play平局的赢率"><a href="#Self-play平局的赢率" class="headerlink" title="Self-play平局的赢率"></a>Self-play平局的赢率</h6><ul>
+<li>井字棋存在“完美的棋手”；</li>
+<li>先手可将平局赢率设置为1；</li>
+<li>后手需要将平局设置为0，否则会永远赢不了先手。</li>
+</ul>
 
       
     </div>
@@ -410,7 +497,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link:</strong>
-    <a href="https://yuzhujia.github.io/2019/09/11/搭建个人博客/" title="搭建个人博客">https://yuzhujia.github.io/2019/09/11/搭建个人博客/</a>
+    <a href="https://yuzhujia.github.io/2019/09/12/RL-Chap1-Introduction/" title="RL Chap1 Introduction">https://yuzhujia.github.io/2019/09/12/RL-Chap1-Introduction/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice: </strong>
@@ -425,7 +512,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/blog/" rel="tag"><i class="fa fa-tag"></i> blog</a>
+            <a href="/tags/RL/" rel="tag"><i class="fa fa-tag"></i> RL</a>
           
         </div>
       
@@ -438,15 +525,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/09/11/An-Introduction-to-Vine-Copulas/" rel="next" title="An Introduction to Vine Copulas">
+                <i class="fa fa-chevron-left"></i> An Introduction to Vine Copulas
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/09/11/An-Introduction-to-Vine-Copulas/" rel="prev" title="An Introduction to Vine Copulas">
-                An Introduction to Vine Copulas <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -498,8 +585,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -552,6 +648,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#REINFORCEMENT-LEARNING-AN-INTRODUCTION"><span class="nav-number">1.</span> <span class="nav-text">REINFORCEMENT LEARNING: AN INTRODUCTION</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Chapter-1-Introduction"><span class="nav-number">2.</span> <span class="nav-text">Chapter 1 Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-Main-Assumptions"><span class="nav-number">2.1.</span> <span class="nav-text">1. Main Assumptions</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-Main-Features"><span class="nav-number">2.2.</span> <span class="nav-text">2. Main Features</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-Unsupervised-learning-v-s-Reinforcement-learning"><span class="nav-number">2.3.</span> <span class="nav-text">3. Unsupervised learning v.s Reinforcement learning</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-Main-Elements"><span class="nav-number">2.4.</span> <span class="nav-text">4. Main Elements</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Policy-main"><span class="nav-number">2.4.1.</span> <span class="nav-text">Policy (main)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Reward-signal"><span class="nav-number">2.4.2.</span> <span class="nav-text">Reward signal</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Value-function"><span class="nav-number">2.4.3.</span> <span class="nav-text">Value function</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Environment-model"><span class="nav-number">2.4.4.</span> <span class="nav-text">Environment model</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-以井字棋为例"><span class="nav-number">2.5.</span> <span class="nav-text">5. 以井字棋为例</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#可选方案"><span class="nav-number">2.5.1.</span> <span class="nav-text">可选方案</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#TD-learning-method"><span class="nav-number">2.5.2.</span> <span class="nav-text">TD learning method</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Self-play平局的赢率"><span class="nav-number">2.5.3.</span> <span class="nav-text">Self-play平局的赢率</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
