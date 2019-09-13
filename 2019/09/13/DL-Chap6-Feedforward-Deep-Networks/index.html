@@ -78,7 +78,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Back-Propagation,">
 
 
 
@@ -89,17 +89,28 @@
 
 
 
-<meta name="description" content="Deep LearningIan Goodfellow and Yoshua Bengio and Aaron Courville">
+<meta name="description" content="Deep LearningIan Goodfellow and Yoshua Bengio and Aaron Courville Chapter6 Feedforward Deep NetworksBack-Propagation1. MotivationCompute the gradients efficiently in algrithms such as Gradient Method.">
+<meta name="keywords" content="Back-Propagation">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DL Chap6 Feedforward Deep Networks">
 <meta property="og:url" content="https://yuzhujia.github.io/2019/09/13/DL-Chap6-Feedforward-Deep-Networks/index.html">
 <meta property="og:site_name" content="Fearless World">
-<meta property="og:description" content="Deep LearningIan Goodfellow and Yoshua Bengio and Aaron Courville">
+<meta property="og:description" content="Deep LearningIan Goodfellow and Yoshua Bengio and Aaron Courville Chapter6 Feedforward Deep NetworksBack-Propagation1. MotivationCompute the gradients efficiently in algrithms such as Gradient Method.">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-13T03:11:39.929Z">
+<meta property="og:image" content="https://i.loli.net/2019/09/13/jl8xCTfXeg5OszB.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/13/68gCOREJSeUbXdo.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/13/EQMszSJOBqFgbcT.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/13/DiVoAI64mkjSO2v.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/13/qKAk1XNUWrmGiwQ.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/13/Q8Lw13SvdOHrqYE.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/13/vwEoZmzdGSY5hTy.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/13/4svxc9RfCNZVKDL.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/13/X9QNimD63wRcVEk.png">
+<meta property="og:updated_time" content="2019-09-13T03:50:47.314Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DL Chap6 Feedforward Deep Networks">
-<meta name="twitter:description" content="Deep LearningIan Goodfellow and Yoshua Bengio and Aaron Courville">
+<meta name="twitter:description" content="Deep LearningIan Goodfellow and Yoshua Bengio and Aaron Courville Chapter6 Feedforward Deep NetworksBack-Propagation1. MotivationCompute the gradients efficiently in algrithms such as Gradient Method.">
+<meta name="twitter:image" content="https://i.loli.net/2019/09/13/jl8xCTfXeg5OszB.png">
 
 
 
@@ -366,7 +377,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  9
+                  95
                 </span>
               
 
@@ -391,7 +402,39 @@
       
 
       
-        <h4 id="Deep-Learning"><a href="#Deep-Learning" class="headerlink" title="Deep Learning"></a>Deep Learning</h4><p>Ian Goodfellow and Yoshua Bengio and Aaron Courville</p>
+        <h3 id="Deep-Learning"><a href="#Deep-Learning" class="headerlink" title="Deep Learning"></a>Deep Learning</h3><p>Ian Goodfellow and Yoshua Bengio and Aaron Courville</p>
+<h3 id="Chapter6-Feedforward-Deep-Networks"><a href="#Chapter6-Feedforward-Deep-Networks" class="headerlink" title="Chapter6 Feedforward Deep Networks"></a>Chapter6 Feedforward Deep Networks</h3><h4 id="Back-Propagation"><a href="#Back-Propagation" class="headerlink" title="Back-Propagation"></a>Back-Propagation</h4><h5 id="1-Motivation"><a href="#1-Motivation" class="headerlink" title="1. Motivation"></a>1. Motivation</h5><p>Compute the gradients efficiently in algrithms such as Gradient Method.</p>
+<h5 id="2-Progress"><a href="#2-Progress" class="headerlink" title="2. Progress"></a>2. Progress</h5><h6 id="神经网络结构"><a href="#神经网络结构" class="headerlink" title="神经网络结构"></a>神经网络结构</h6><p><img src="https://i.loli.net/2019/09/13/jl8xCTfXeg5OszB.png" alt="1.png"></p>
+<h6 id="计算梯度"><a href="#计算梯度" class="headerlink" title="计算梯度"></a>计算梯度</h6><p>$\frac{\partial C}{\partial w}=\frac{\partial z}{\partial w} \frac{\partial C}{\partial z}$</p>
+<ul>
+<li><p>$\frac{\partial z}{\partial w}$</p>
+<p><img src="https://i.loli.net/2019/09/13/68gCOREJSeUbXdo.png" alt="2.png"></p>
+</li>
+</ul>
+<ul>
+<li><p>$\frac{\partial C}{\partial z}=\frac{\partial a}{\partial z} \frac{\partial C}{\partial a}$</p>
+<p><img src="https://i.loli.net/2019/09/13/EQMszSJOBqFgbcT.png" alt="3.png"></p>
+<ul>
+<li><p>$\frac{\partial a}{\partial z} = \sigma^{\prime}(Z)$</p>
+<p><img src="https://i.loli.net/2019/09/13/DiVoAI64mkjSO2v.png" alt="4.png"></p>
+</li>
+<li><p>$\frac{\partial C}{\partial a}$</p>
+<p><img src="https://i.loli.net/2019/09/13/qKAk1XNUWrmGiwQ.png" alt="5.png"></p>
+</li>
+<li><p><img src="https://i.loli.net/2019/09/13/Q8Lw13SvdOHrqYE.png" alt="6.png"></p>
+<ul>
+<li><p>Case 1. Output Layer</p>
+<p><img src="https://i.loli.net/2019/09/13/vwEoZmzdGSY5hTy.png" alt="7.png"></p>
+</li>
+<li><p>Case 2. Not Output Layer</p>
+<p><img src="https://i.loli.net/2019/09/13/4svxc9RfCNZVKDL.png" alt="8.png"></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="3-Summary"><a href="#3-Summary" class="headerlink" title="3. Summary"></a>3. Summary</h5><p><img src="https://i.loli.net/2019/09/13/X9QNimD63wRcVEk.png" alt="9.png"></p>
 
       
     </div>
@@ -433,6 +476,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Back-Propagation/" rel="tag"><i class="fa fa-tag"></i> Back-Propagation</a>
+          
+        </div>
       
 
       
@@ -552,7 +601,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -585,7 +634,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Deep-Learning"><span class="nav-number">1.</span> <span class="nav-text">Deep Learning</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Deep-Learning"><span class="nav-number">1.</span> <span class="nav-text">Deep Learning</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chapter6-Feedforward-Deep-Networks"><span class="nav-number">2.</span> <span class="nav-text">Chapter6 Feedforward Deep Networks</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Back-Propagation"><span class="nav-number">2.1.</span> <span class="nav-text">Back-Propagation</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-Motivation"><span class="nav-number">2.1.1.</span> <span class="nav-text">1. Motivation</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-Progress"><span class="nav-number">2.1.2.</span> <span class="nav-text">2. Progress</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#神经网络结构"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">神经网络结构</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#计算梯度"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">计算梯度</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-Summary"><span class="nav-number">2.1.3.</span> <span class="nav-text">3. Summary</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -619,7 +668,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">2.3k</span>
+    <span title="Site words total count">2.4k</span>
   
 </div>
 
