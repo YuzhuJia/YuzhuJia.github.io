@@ -78,7 +78,7 @@
 
 
 
-  <meta name="keywords" content="Back-Propagation,">
+  <meta name="keywords" content="Back-Propagation,Metworks,">
 
 
 
@@ -90,7 +90,7 @@
 
 
 <meta name="description" content="Deep LearningIan Goodfellow and Yoshua Bengio and Aaron Courville Chapter6 Feedforward Deep NetworksBack-Propagation1. MotivationCompute the gradients efficiently in algrithms such as Gradient Method.">
-<meta name="keywords" content="Back-Propagation">
+<meta name="keywords" content="Back-Propagation,Metworks">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DL Chap6 Feedforward Deep Networks">
 <meta property="og:url" content="https://yuzhujia.github.io/2019/09/13/DL-Chap6-Feedforward-Deep-Networks/index.html">
@@ -106,7 +106,8 @@
 <meta property="og:image" content="https://i.loli.net/2019/09/13/vwEoZmzdGSY5hTy.png">
 <meta property="og:image" content="https://i.loli.net/2019/09/13/4svxc9RfCNZVKDL.png">
 <meta property="og:image" content="https://i.loli.net/2019/09/13/X9QNimD63wRcVEk.png">
-<meta property="og:updated_time" content="2019-09-13T03:50:47.314Z">
+<meta property="og:image" content="https://i.loli.net/2019/09/13/QefRGO3TPNWJ5Kc.png">
+<meta property="og:updated_time" content="2019-09-13T04:30:30.114Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DL Chap6 Feedforward Deep Networks">
 <meta name="twitter:description" content="Deep LearningIan Goodfellow and Yoshua Bengio and Aaron Courville Chapter6 Feedforward Deep NetworksBack-Propagation1. MotivationCompute the gradients efficiently in algrithms such as Gradient Method.">
@@ -377,7 +378,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  95
+                  245
                 </span>
               
 
@@ -435,6 +436,27 @@
 </li>
 </ul>
 <h5 id="3-Summary"><a href="#3-Summary" class="headerlink" title="3. Summary"></a>3. Summary</h5><p><img src="https://i.loli.net/2019/09/13/X9QNimD63wRcVEk.png" alt="9.png"></p>
+<h4 id="Elements-in-Networks"><a href="#Elements-in-Networks" class="headerlink" title="Elements in Networks"></a>Elements in Networks</h4><h5 id="1-Hidden-Units"><a href="#1-Hidden-Units" class="headerlink" title="1. Hidden Units"></a>1. Hidden Units</h5><p>Piecewise Linear Hidden Units: Easier; Avoid gradient vanishing.</p>
+<p>such as Relu: <img src="https://i.loli.net/2019/09/13/QefRGO3TPNWJ5Kc.png" alt="10.png"></p>
+<h5 id="2-Number-of-hidden-units"><a href="#2-Number-of-hidden-units" class="headerlink" title="2. Number of hidden units"></a>2. Number of hidden units</h5><ul>
+<li><p>The number of hidden units required by the shallow model is <u>exponential</u>;</p>
+</li>
+<li><p>Choose a model with <u>more than one</u> hidden layer in order to <u>avoid</u> needing to make the model <u>infeasibly large</u>;</p>
+</li>
+<li><p>Choose a <u>deep</u> model for <u>statistical reasons</u>.</p>
+<p><span style="background-color: #A5DEF1;">statistical reasons?</span></p>
+</li>
+</ul>
+<h5 id="3-Universal-Approximation-Properties"><a href="#3-Universal-Approximation-Properties" class="headerlink" title="3. Universal Approximation Properties"></a>3. Universal Approximation Properties</h5><p>Precise statement :  neural networks with a single hidden layer can be used to approximate any continuous function to any desired precision.</p>
+<ul>
+<li><p>对于只有一层隐藏层的神经网络也成立；</p>
+</li>
+<li><p>以任意的$\epsilon$精度近似，并非精确；</p>
+</li>
+<li><p>被近似的对象是连续函数：</p>
+<p>even if the function we’d really like to compute is discontinuous, it’s often the case that a continuous approximation is good enough.</p>
+</li>
+</ul>
 
       
     </div>
@@ -480,6 +502,8 @@
         <div class="post-tags">
           
             <a href="/tags/Back-Propagation/" rel="tag"><i class="fa fa-tag"></i> Back-Propagation</a>
+          
+            <a href="/tags/Metworks/" rel="tag"><i class="fa fa-tag"></i> Metworks</a>
           
         </div>
       
@@ -601,7 +625,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -634,7 +658,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Deep-Learning"><span class="nav-number">1.</span> <span class="nav-text">Deep Learning</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chapter6-Feedforward-Deep-Networks"><span class="nav-number">2.</span> <span class="nav-text">Chapter6 Feedforward Deep Networks</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Back-Propagation"><span class="nav-number">2.1.</span> <span class="nav-text">Back-Propagation</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-Motivation"><span class="nav-number">2.1.1.</span> <span class="nav-text">1. Motivation</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-Progress"><span class="nav-number">2.1.2.</span> <span class="nav-text">2. Progress</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#神经网络结构"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">神经网络结构</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#计算梯度"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">计算梯度</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-Summary"><span class="nav-number">2.1.3.</span> <span class="nav-text">3. Summary</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Deep-Learning"><span class="nav-number">1.</span> <span class="nav-text">Deep Learning</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chapter6-Feedforward-Deep-Networks"><span class="nav-number">2.</span> <span class="nav-text">Chapter6 Feedforward Deep Networks</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Back-Propagation"><span class="nav-number">2.1.</span> <span class="nav-text">Back-Propagation</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-Motivation"><span class="nav-number">2.1.1.</span> <span class="nav-text">1. Motivation</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-Progress"><span class="nav-number">2.1.2.</span> <span class="nav-text">2. Progress</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#神经网络结构"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">神经网络结构</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#计算梯度"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">计算梯度</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-Summary"><span class="nav-number">2.1.3.</span> <span class="nav-text">3. Summary</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Elements-in-Networks"><span class="nav-number">2.2.</span> <span class="nav-text">Elements in Networks</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-Hidden-Units"><span class="nav-number">2.2.1.</span> <span class="nav-text">1. Hidden Units</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-Number-of-hidden-units"><span class="nav-number">2.2.2.</span> <span class="nav-text">2. Number of hidden units</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-Universal-Approximation-Properties"><span class="nav-number">2.2.3.</span> <span class="nav-text">3. Universal Approximation Properties</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -668,7 +692,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">2.4k</span>
+    <span title="Site words total count">2.6k</span>
   
 </div>
 
