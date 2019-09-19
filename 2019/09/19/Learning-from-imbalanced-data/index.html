@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+  <script>
+	(function(){
+		if(''){
+			if (prompt('Please enter the password') !== ''){
+				alert('Wrong！');
+				history.back();
+			}
+		}
+	})();
+  </script>
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="imbalanced data,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="目录 0. 前言  介绍，难点 应用  思路是按照典型的数据分类框架：数据预处理 - 分类器算法 - 评价标准 进行的； 其中【评价标准】之前孙佳捷已经介绍得比较全面了，我这里主要是对【数据预处理】和【分类器算法】的补充。 每种方法都会举一个比较经典，直观的例子；再简单介绍一下现在的研究方向。 里面的结论都是参考文献里面的，有些我没有看得很深入，如果有问题就再在文章里仔细看一看。 1. 数据预处理">
+<meta name="keywords" content="imbalanced data">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Learning from imbalanced data">
+<meta property="og:url" content="https://yuzhujia.github.io/2019/09/19/Learning-from-imbalanced-data/index.html">
+<meta property="og:site_name" content="Fearless World">
+<meta property="og:description" content="目录 0. 前言  介绍，难点 应用  思路是按照典型的数据分类框架：数据预处理 - 分类器算法 - 评价标准 进行的； 其中【评价标准】之前孙佳捷已经介绍得比较全面了，我这里主要是对【数据预处理】和【分类器算法】的补充。 每种方法都会举一个比较经典，直观的例子；再简单介绍一下现在的研究方向。 里面的结论都是参考文献里面的，有些我没有看得很深入，如果有问题就再在文章里仔细看一看。 1. 数据预处理">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-19T09:17:24.242Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Learning from imbalanced data">
+<meta name="twitter:description" content="目录 0. 前言  介绍，难点 应用  思路是按照典型的数据分类框架：数据预处理 - 分类器算法 - 评价标准 进行的； 其中【评价标准】之前孙佳捷已经介绍得比较全面了，我这里主要是对【数据预处理】和【分类器算法】的补充。 每种方法都会举一个比较经典，直观的例子；再简单介绍一下现在的研究方向。 里面的结论都是参考文献里面的，有些我没有看得很深入，如果有问题就再在文章里仔细看一看。 1. 数据预处理">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://yuzhujia.github.io/2019/09/19/Learning-from-imbalanced-data/">
+
+
+
+
+
+<link href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css" rel="stylesheet">
+  <title>Learning from imbalanced data | Fearless World</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Fearless World</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">YuzhuJia's blog</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-board">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-newspaper-o"></i> <br>
+            
+            board
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://yuzhujia.github.io/2019/09/19/Learning-from-imbalanced-data/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YuzhuJia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/myphoto.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fearless World">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Learning from imbalanced data</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-19T09:53:25+08:00">
+                2019-09-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Review/" itemprop="url" rel="index">
+                    <span itemprop="name">Review</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  3.4k
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="目录"><a href="#目录" class="headerlink" title="目录 "></a><font color="#FFFFFF" size="4"><span style="background-color: #5B7FA7;">目录 </span></font></h4><h5 id="0-前言"><a href="#0-前言" class="headerlink" title="0. 前言 "></a><font color="#FFFFFF" size="4"><span style="background-color: #508DA3;">0. 前言 </span></font></h5><ul>
+<li>介绍，难点</li>
+<li>应用</li>
+</ul>
+<p>思路是按照典型的数据分类框架：数据预处理 - 分类器算法 - 评价标准 进行的；</p>
+<p>其中【评价标准】之前孙佳捷已经介绍得比较全面了，我这里主要是对【数据预处理】和【分类器算法】的补充。</p>
+<p>每种方法都会举一个比较经典，直观的例子；再简单介绍一下现在的研究方向。</p>
+<p>里面的结论都是参考文献里面的，有些我没有看得很深入，如果有问题就再在文章里仔细看一看。</p>
+<h5 id="1-数据预处理"><a href="#1-数据预处理" class="headerlink" title="1. 数据预处理 "></a><font color="#FFFFFF" size="4"><span style="background-color: #508DA3;">1. 数据预处理 </span></font></h5><ul>
+<li><p>重采样法</p>
+<p>欠采样 / 过采样 / 混合采样</p>
+</li>
+<li><p>特征选择</p>
+<p>过滤式 / 封装式 / 嵌入式</p>
+</li>
+</ul>
+<hr>
+<h5 id="2-分类算法"><a href="#2-分类算法" class="headerlink" title="2. 分类算法 "></a><font color="#FFFFFF" size="4"><span style="background-color: #508DA3;">2. 分类算法 </span></font></h5><ul>
+<li><p>代价敏感方法</p>
+<p>代价敏感直接学习</p>
+<p>代价敏感元学习</p>
+</li>
+<li><p>单类方法</p>
+</li>
+<li><p>集成方法</p>
+<p>和数据预处理方法组合</p>
+<p>和代价敏感方法组合</p>
+</li>
+</ul>
+<hr>
+<h4 id="前言"><a href="#前言" class="headerlink" title="前言 "></a><font color="#FFFFFF" size="4"><span style="background-color: #5B7FA7;">前言 </span></font></h4><h5 id="1-不平衡数据分类问题"><a href="#1-不平衡数据分类问题" class="headerlink" title="1. 不平衡数据分类问题 "></a><font color="#FFFFFF" size="4"><span style="background-color: #508DA3;">1. 不平衡数据分类问题 </span></font></h5><ul>
+<li><p>一个数据集称为不平衡数据集需要具备两个条件: <u>类别数量的不平衡</u> 和 <u>错分代价的不平衡</u>。</p>
+</li>
+<li><p>不平衡数据分类问题的特性主要体现在 <u>不平衡数据集自身的非均衡性</u> 以及 <u>传统分类算法的局限性</u> 两方面。</p>
+<ul>
+<li><p>不平衡数据进一步可以分为 绝对稀少 和 相对较少；</p>
+<p>本身含有的<u>信息有限</u>,分类器难以通过训练充分学习到少数类的特征,使得少数类数据难以识别；</p>
+<p><u>多数类样本会模糊少数类样本的边界</u>,在某些存在<u>类别重叠</u>的区域,很难有效地将少数类样本与多数类区分开来。</p>
+</li>
+<li><p><u>传统分类算法以最小化损失为目标，多数类样本的损失占比较大。然而实际上少数类样本误分的代价更大。</u></p>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h5 id="2-应用领域"><a href="#2-应用领域" class="headerlink" title="2. 应用领域 "></a><font color="#FFFFFF" size="4"><span style="background-color: #508DA3;">2. 应用领域 </span></font></h5><p><u>2017年的一篇综述文献中罗列出了近年来不平衡数据的应用领域以及对应的文献。</u></p>
+<ul>
+<li>化学和生物医学工程领域</li>
+<li>金融管理</li>
+<li>信息技术应用</li>
+</ul>
+<hr>
+<h4 id="数据预处理"><a href="#数据预处理" class="headerlink" title="数据预处理 "></a><font color="#FFFFFF" size="4"><span style="background-color: #5B7FA7;">数据预处理 </span></font></h4><h5 id="1-重采样法"><a href="#1-重采样法" class="headerlink" title="1. 重采样法 "></a><font color="#FFFFFF" size="4"><span style="background-color: #508DA3;">1. 重采样法 </span></font></h5><h6 id="欠采样法"><a href="#欠采样法" class="headerlink" title="欠采样法"></a><span style="background-color: #A5DEF1;">欠采样法</span></h6><p>通过减少多数类样本的数量来提高少数类的分类准确率。</p>
+<p> <strong>随机欠采样</strong></p>
+<ul>
+<li>一种最简单的欠采样方法；</li>
+<li>可以多次随机欠采样来减小单次随机欠采样带来的误差；</li>
+<li><font color="#CD2626"> 缺点</font>：可能会移除多数类中潜在的有用信息,从而导致分类器性能降低。</li>
+</ul>
+<p><strong>启发式欠采样方法</strong></p>
+<p>例如：</p>
+<ul>
+<li>基于聚类的欠采样算法；</li>
+<li>基于类重叠度不平衡数据欠采样；</li>
+<li>基于灵敏度的多元欠采样。</li>
+</ul>
+<hr>
+<p>以基于灵敏度的多元欠采样为例</p>
+<ul>
+<li>生成的不平衡数据，呈网格状的9个高斯分布，样本数相同。最中心的是属于少数类的样本。</li>
+</ul>
+<ul>
+<li>DSUS：文中给的方法，与分布信息相结合后的样本选取；</li>
+<li>RUS：基于随机的方法选取；</li>
+<li>LA-SVM：在决策边界重采样的方法，对照。</li>
+</ul>
+<ul>
+<li>前四轮欠采样；</li>
+<li>DSUS：倾向于在决策边界附近选择更多的样本，也会选取其他的样本；</li>
+<li>RUS：对决策边界的样本，其他样本，同样随机；</li>
+<li>LA-SVM：只选取决策边界样本，忽视其他样本。</li>
+</ul>
+<hr>
+<h6 id="过采样法"><a href="#过采样法" class="headerlink" title="过采样法"></a><span style="background-color: #A5DEF1;">过采样法</span></h6><p>通过增加少数类样本的数量来提高少数类的分类性能。</p>
+<p><strong>随机复制 / 简单的旋转</strong></p>
+<p>由于反复复制少数类样本而增加了分类算法过拟合的可能性。</p>
+<p><strong>SMOTE</strong></p>
+<ul>
+<li>通过随机选择同类近邻的样本进行插值,生成无重复的新的少数类样本；</li>
+<li>一定程度上克服随机过采样方法的过拟合问题；</li>
+<li><font color="#CD2626"> 缺点</font>：新样例的产生方法决定了其可能会出现过泛化、 样本重叠、 噪声等一系列问题；<ul>
+<li>过泛化：少数类样本的区域扩张到了多数类；</li>
+<li>样本重叠：产生的少数类样本和多数类样本重叠；</li>
+<li>噪声：插值结果产生了不必要的噪声。</li>
+</ul>
+</li>
+<li>相继出现了一系列SMOTE的改进算法，会进行简单介绍。</li>
+</ul>
+<p><strong>RACOG / DOS</strong></p>
+<p>考虑数据的整体分布信息。</p>
+<hr>
+<p>SMOTE进行随机插值的例子。</p>
+<hr>
+<ul>
+<li>过泛化 - SMOM - 临近样本加权重；</li>
+<li>样本重叠 - MDO - 一种基于马氏距离的过采样方法；</li>
+<li>噪声 - k-means SMOTE - 在生成新的样本前,通过K均值聚类选择相对安全的数据样本。</li>
+</ul>
+<hr>
+<p><strong>k-means SMOTE</strong></p>
+<ul>
+<li>输入数据，最理想的决策边界；</li>
+<li>k均值聚类分为三类；</li>
+<li>在每一类的内部进行插值生成新样本；否则不同类之间进行插值生成样本，成为噪声；</li>
+<li>得到的决策边界。</li>
+</ul>
+<hr>
+<p><strong>RACOG</strong></p>
+<ul>
+<li>考虑数据的联合概率分布,并结合Gibbs采样器生成新的数据样本;</li>
+<li>马氏链收敛之前的阶段 burn-in period，收敛得到的是联合分布的样本；</li>
+<li>$\alpha$ 和采样率有关，最后得到的新样本数为$[T/\alpha]$个；</li>
+<li>马尔科夫链的状态转移概率用相关树DT估计。 #考虑整体分布</li>
+</ul>
+<hr>
+<p>简单介绍近年来相继出现的数据生成方法</p>
+<ul>
+<li>将少数类数据的采样问题转化为数据估计问题，通过模糊学习生成新的数据；</li>
+<li>将缺失值填充的思想应用于数据过采样中，通过期望值最大法对缺失值进行估计更新；</li>
+<li>利用深度学习模型中的条件生成对抗网络生成少数类样本；</li>
+<li>深度过采样模型，在特征空间中实现少数类的重采样。</li>
+</ul>
+<hr>
+<h6 id="混合采样法"><a href="#混合采样法" class="headerlink" title="混合采样法"></a><span style="background-color: #A5DEF1;">混合采样法</span></h6><p>增加样本集中少数类样本的个数,减少多数类样本的个数,以此来降低不平衡度。</p>
+<p><strong>SMOTE + Tomek links</strong></p>
+<ul>
+<li>很好地克服SMOTE带来的噪声问题； #过采样</li>
+<li>少数类，多数类样本区域交叉；</li>
+<li>Tomek links做数据清洗，两类样本均被清除。 #欠采样</li>
+</ul>
+<hr>
+<h6 id="重采样总结"><a href="#重采样总结" class="headerlink" title="重采样总结"></a><span style="background-color: #A5DEF1;">重采样总结</span></h6><ul>
+<li>不依赖于所使用的具体的分类器,具有较好的适应性；</li>
+<li><font color="#CD2626"> 缺点</font>：不适用于少数类样本数量太少甚至没有少数类样本的极端不平衡情况；</li>
+<li><font color="#CD2626"> 缺点</font>：如何合理确定重采样规模仍是基于重采样方法的难点所在。<ul>
+<li>大多采样到所有类别样本数量相同为止；</li>
+<li>采样算法的采样率不仅仅取决于类别之间的不平衡比例。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h5 id="2-特征选择"><a href="#2-特征选择" class="headerlink" title="2. 特征选择 "></a><font color="#FFFFFF" size="4"><span style="background-color: #508DA3;">2. 特征选择 </span></font></h5><h6 id="过滤式"><a href="#过滤式" class="headerlink" title="过滤式"></a><span style="background-color: #A5DEF1;">过滤式</span></h6><ul>
+<li>与分类器独立；</li>
+<li>通过分析原始特征集的内在特性,并结合相应的评价准则来选择出特征子集；</li>
+<li>计算复杂度低；</li>
+<li><font color="#CD2626"> 缺点</font>：分类正确率较低。</li>
+</ul>
+<hr>
+<p>以AR为评价准则的特征选择为例：</p>
+<ul>
+<li>AUC：ROC曲线的下方面积；用 Wilcoxon-Mann-Whitney test 等价计算；二分类器性能评估，越大性能越好；</li>
+<li>RCC：斯皮尔曼秩相关系数，刻画两个变量的线性相关性；相关性强的变量不必再选进去。</li>
+</ul>
+<hr>
+<h6 id="封装式"><a href="#封装式" class="headerlink" title="封装式"></a><span style="background-color: #A5DEF1;">封装式</span></h6><ul>
+<li>一种与分类器相结合的特征选择方法,以分类错误率作为特征子集的评价指标；</li>
+<li>这里的分类器被当作一个黑箱使用；</li>
+<li>每次都要通过分类器的训练和测试来评价子集的优劣,计算代价较大。</li>
+</ul>
+<hr>
+<p>封装式特征选择的流程</p>
+<ul>
+<li>特征集整体送去评价；</li>
+<li>评价的标准是分类器的错误率，送向作为黑箱的分类器；</li>
+<li>将分类器的分类结果返回给特征评价；</li>
+<li>讲错误率作为评价标准，选出特征子集。</li>
+</ul>
+<hr>
+<h6 id="嵌入式"><a href="#嵌入式" class="headerlink" title="嵌入式"></a><span style="background-color: #A5DEF1;">嵌入式</span></h6><ul>
+<li>将特征选择与分类模型的学习过程相结合；</li>
+<li>在分类过程中包含特征选择的功能；</li>
+<li>通常针对给定的学习机器；</li>
+<li>具有相对较低计算代价的同时能够保证较好的分类精度。</li>
+</ul>
+<hr>
+<p>嵌入式的例子</p>
+<ul>
+<li>分离超平面的边缘与权向量$w$的欧氏范数成反比；</li>
+<li>是一种后退法。</li>
+</ul>
+<hr>
+<p>三种特征选择方法的比较</p>
+<ul>
+<li>灰色阴影代表这个方法使用了这一项；</li>
+<li>评价方式：统计检测；表现阈值；交叉验证；</li>
+<li>评判标准：特征之间的相关性；分类器的表现；</li>
+<li>搜索生成特征子集：启发式/随机/遍历搜索；前进后退法/特征排序。</li>
+</ul>
+<hr>
+<h6 id="特征选择总结"><a href="#特征选择总结" class="headerlink" title="特征选择总结"></a><span style="background-color: #A5DEF1;">特征选择总结</span></h6><ul>
+<li>主要应用于具有高维特性的不平衡数据处理中；</li>
+<li><font color="#CD2626"> 缺点</font>：特征选择的过程可能存在信息丢失,对后续分类的影响较大；</li>
+<li>从特征提取角度解决不平衡数据分类问题的研究较少。</li>
+</ul>
+<h4 id="分类算法"><a href="#分类算法" class="headerlink" title="分类算法 "></a><font color="#FFFFFF" size="4"><span style="background-color: #5B7FA7;">分类算法 </span></font></h4><h5 id="1-代价敏感方法"><a href="#1-代价敏感方法" class="headerlink" title="1. 代价敏感方法 "></a><font color="#FFFFFF" size="4"><span style="background-color: #508DA3;">1. 代价敏感方法 </span></font></h5><h6 id="代价敏感直接学习"><a href="#代价敏感直接学习" class="headerlink" title="代价敏感直接学习"></a><span style="background-color: #A5DEF1;">代价敏感直接学习</span></h6><p>在传统学习算法的基础上引入代价敏感因子，通过改进分类器模型的内部构造,使基于最小错误率的分类器转化为基于最小代价的代价敏感分类器。</p>
+<ul>
+<li>$\xi$ 是松弛变量，也可以看成一种代价；</li>
+<li>目标函数的第一部分，在嵌入式的例子中见过，同分离超平面的边缘反比；</li>
+<li>在负分类样本的代价加了权重。</li>
+</ul>
+<hr>
+<h6 id="代价敏感元学习"><a href="#代价敏感元学习" class="headerlink" title="代价敏感元学习"></a><span style="background-color: #A5DEF1;">代价敏感元学习</span></h6><p>将样本相关的错分代价转换成样本权重,按权重对原始样本集进行重构。 (通过更改样本类别实现，数量多=权重大) </p>
+<ul>
+<li>通过估计训练样本的后验概率密度,结合代价矩阵计算每个训练样本的理想类别；</li>
+<li>然后根据理想类别修改原训练样本的类别,得到新的训练集；</li>
+<li>最后使用基于错误率的分类器学习这个新的训练集。</li>
+</ul>
+<ul>
+<li><p>$p$：分类模型$L$应用于数据子集$S_i$得到的子模型$M_i$，对于该样本$x$给出的是一个各类别概率的判断(否则是属于某一类的判断)；</p>
+</li>
+<li><p>$q$：所有的样本都被重采样了，否则该样本$x$不属于某些$S_i$，同时也不是某些模型$M_i$的训练集；</p>
+</li>
+<li><p>$Where$：该样本$x$在每一个子集$S_i$中，属于每一个模型$M_i$的训练集，概率平均；</p>
+<p>​                该样本$x$不属于某些子集$S_i$，可作为这些模型$M_i$的验证集/预测，概率平均。</p>
+</li>
+</ul>
+<hr>
+<h6 id="代价敏感总结"><a href="#代价敏感总结" class="headerlink" title="代价敏感总结"></a><span style="background-color: #A5DEF1;">代价敏感总结</span></h6><ul>
+<li>处理不平衡数据分类问题的有效方法；</li>
+<li>当少数类样本数量太少甚至没有少数类样本时,代价敏感的方法不再适用；</li>
+<li>基于代价敏感学习的不平衡数据分类方法的核心是错分代价的确定,在大多数情况下,很难对真实的错分代价做出准确的估计。</li>
+</ul>
+<hr>
+<h5 id="2-单类方法"><a href="#2-单类方法" class="headerlink" title="2. 单类方法 "></a><font color="#FFFFFF" size="4"><span style="background-color: #508DA3;">2. 单类方法 </span></font></h5><ul>
+<li>异常点检测方法在不平衡数据中的应用；</li>
+<li>对多数类样本进行训练,形成一个对该类别的数据模型；</li>
+<li>对于新的样本,通过设计相似度度量并设定阈值来判断新样本的归属。</li>
+</ul>
+<p>这是一个医学图像异常点检测的例子，可以比较直观地看出这类方法的思想。</p>
+<hr>
+<ul>
+<li>适用于少数类样本非常少或类间不平衡度很高的极端情况；</li>
+<li>易陷入对训练集中少数类样本的过拟合而导致泛化能力下降；</li>
+<li><font color="#CD2626"> 缺点</font>：样本类别的确定依赖于阈值,如何选取合理的阈值是需要解决的关键问题之一；</li>
+<li><font color="#CD2626"> 缺点</font>：现有的单类学习方法大多基于核函数来寻找非线性决策边界,性能在很大程度上还依赖于核函数的选取。</li>
+</ul>
+<hr>
+<h5 id="3-集成方法"><a href="#3-集成方法" class="headerlink" title="3. 集成方法 "></a><font color="#FFFFFF" size="4"><span style="background-color: #508DA3;">3. 集成方法 </span></font></h5><p>2011年的一篇综述中总结的为解决类不平衡问题而提出的集成分类。</p>
+<p>可以看到我们即将介绍的主要分支，以及每个分支下比较经典的算法。</p>
+<hr>
+<h6 id="和数据预处理方法组合"><a href="#和数据预处理方法组合" class="headerlink" title="和数据预处理方法组合"></a><span style="background-color: #A5DEF1;">和数据预处理方法组合</span></h6><p><strong>与Bagging结合</strong></p>
+<ul>
+<li><p>$a\%$是采样率，使得每一类都有相同的样本数目$N_c*a\%$，过采样/欠采样；</p>
+</li>
+<li><p>Bagging 算法中各个弱学习器是不相关的。</p>
+</li>
+</ul>
+<hr>
+<p><strong>与Boosting结合</strong></p>
+<ul>
+<li>SMOTE过采样更新样本的“均匀”分布；这里的分布和样本的数目是相关联的，数目越多，概率越大；</li>
+<li>学习第一个弱学习器，给出损失，用于计算下一个弱学习器的权重系数(Boosting的思想)；</li>
+<li>集合$B$用于计算误分类的损失。</li>
+</ul>
+<hr>
+<p><strong>与混合集成结合</strong></p>
+<ul>
+<li>欠采样法使得每一类样本数目相同；</li>
+<li>采用 Bagging 作为基本的集成学习方法, 并在每次训练时使用 AdaBoost 作为分类算法。</li>
+<li>AdaBoost集成各个弱学习器相关(权重系数体现)。</li>
+</ul>
+<h6 id="和代价敏感方法组合"><a href="#和代价敏感方法组合" class="headerlink" title="和代价敏感方法组合"></a><span style="background-color: #A5DEF1;">和代价敏感方法组合</span></h6><ul>
+<li>这类方法涉及权重更新，不是特别直观，我就大概地说一下思想；</li>
+<li>AdaBoost算法中更重视多类样本以达到更好的准确率(传统分类器的通病)；</li>
+<li>代价敏感方法中，不同类的样本权重不同；</li>
+<li>主要采用不同的方法更新Adaboost 的权重,使得算法对于不同类别区别对待。</li>
+</ul>
+<hr>
+<h6 id="集成方法总结"><a href="#集成方法总结" class="headerlink" title="集成方法总结"></a><span style="background-color: #A5DEF1;">集成方法总结</span></h6><ul>
+<li>取得了一定的成功；</li>
+<li>集成学习的不平衡数据处理方法大多存在基分类器类型和数量的选择难题。</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+	
+	
+      <div>
+        
+<div style="text-align:center;color: #5B7FA7;font-size:14px;">
+------ The End <i class="fa fa-paw"></i> Thank You ------</div>
+
+      </div>
+	
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:</strong>
+    YuzhuJia
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link:</strong>
+    <a href="https://yuzhujia.github.io/2019/09/19/Learning-from-imbalanced-data/" title="Learning from imbalanced data">https://yuzhujia.github.io/2019/09/19/Learning-from-imbalanced-data/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice: </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/imbalanced-data/" rel="tag"><i class="fa fa-tag"></i> imbalanced data</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/13/DL-Chap6-Feedforward-Deep-Networks/" rel="next" title="DL Chap6 Feedforward Deep Networks">
+                <i class="fa fa-chevron-left"></i> DL Chap6 Feedforward Deep Networks
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/myphoto.jpg" alt="YuzhuJia">
+            
+              <p class="site-author-name" itemprop="name">YuzhuJia</p>
+              <p class="site-description motion-element" itemprop="description">Welcome & Study with me :)</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#目录"><span class="nav-number">1.</span> <span class="nav-text">目录 </span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#0-前言"><span class="nav-number">1.1.</span> <span class="nav-text">0. 前言 </span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-数据预处理"><span class="nav-number">1.2.</span> <span class="nav-text">1. 数据预处理 </span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-分类算法"><span class="nav-number">1.3.</span> <span class="nav-text">2. 分类算法 </span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#前言"><span class="nav-number">2.</span> <span class="nav-text">前言 </span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-不平衡数据分类问题"><span class="nav-number">2.1.</span> <span class="nav-text">1. 不平衡数据分类问题 </span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-应用领域"><span class="nav-number">2.2.</span> <span class="nav-text">2. 应用领域 </span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据预处理"><span class="nav-number">3.</span> <span class="nav-text">数据预处理 </span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-重采样法"><span class="nav-number">3.1.</span> <span class="nav-text">1. 重采样法 </span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#欠采样法"><span class="nav-number">3.1.1.</span> <span class="nav-text">欠采样法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#过采样法"><span class="nav-number">3.1.2.</span> <span class="nav-text">过采样法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#混合采样法"><span class="nav-number">3.1.3.</span> <span class="nav-text">混合采样法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#重采样总结"><span class="nav-number">3.1.4.</span> <span class="nav-text">重采样总结</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-特征选择"><span class="nav-number">3.2.</span> <span class="nav-text">2. 特征选择 </span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#过滤式"><span class="nav-number">3.2.1.</span> <span class="nav-text">过滤式</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#封装式"><span class="nav-number">3.2.2.</span> <span class="nav-text">封装式</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#嵌入式"><span class="nav-number">3.2.3.</span> <span class="nav-text">嵌入式</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#特征选择总结"><span class="nav-number">3.2.4.</span> <span class="nav-text">特征选择总结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分类算法"><span class="nav-number">4.</span> <span class="nav-text">分类算法 </span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-代价敏感方法"><span class="nav-number">4.1.</span> <span class="nav-text">1. 代价敏感方法 </span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#代价敏感直接学习"><span class="nav-number">4.1.1.</span> <span class="nav-text">代价敏感直接学习</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#代价敏感元学习"><span class="nav-number">4.1.2.</span> <span class="nav-text">代价敏感元学习</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#代价敏感总结"><span class="nav-number">4.1.3.</span> <span class="nav-text">代价敏感总结</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-单类方法"><span class="nav-number">4.2.</span> <span class="nav-text">2. 单类方法 </span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-集成方法"><span class="nav-number">4.3.</span> <span class="nav-text">3. 集成方法 </span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#和数据预处理方法组合"><span class="nav-number">4.3.1.</span> <span class="nav-text">和数据预处理方法组合</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#和代价敏感方法组合"><span class="nav-number">4.3.2.</span> <span class="nav-text">和代价敏感方法组合</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#集成方法总结"><span class="nav-number">4.3.3.</span> <span class="nav-text">集成方法总结</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YuzhuJia</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">6k</span>
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+</body>
+</html>
