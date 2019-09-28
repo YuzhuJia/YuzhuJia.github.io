@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+  <script>
+	(function(){
+		if(''){
+			if (prompt('Please enter the password') !== ''){
+				alert('Wrong！');
+				history.back();
+			}
+		}
+	})();
+  </script>
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="zotero,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="一、安装及配置注意：注册邮箱中含有下划线(“_“)，可能导致zotero和坚果云的webdav同步一直验证不通过，因为中国邮箱允许“_“，而外国只允许”.” 。 1. 下载安装 独立版：软件主体，承载了绝大多数功能 浏览器插件：将文献从网页收录到独立版内 打开下载链接，页面左侧为独立版，右侧为浏览器插件，按常规下载安装即可。  2. 初始设定修改数据存储位置( 建议所有系统修改，对 Windows">
+<meta name="keywords" content="zotero">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Zotero Guide">
+<meta property="og:url" content="https://yuzhujia.github.io/2019/09/28/Zotero-Guide/index.html">
+<meta property="og:site_name" content="Fearless World">
+<meta property="og:description" content="一、安装及配置注意：注册邮箱中含有下划线(“_“)，可能导致zotero和坚果云的webdav同步一直验证不通过，因为中国邮箱允许“_“，而外国只允许”.” 。 1. 下载安装 独立版：软件主体，承载了绝大多数功能 浏览器插件：将文献从网页收录到独立版内 打开下载链接，页面左侧为独立版，右侧为浏览器插件，按常规下载安装即可。  2. 初始设定修改数据存储位置( 建议所有系统修改，对 Windows">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://i.loli.net/2019/09/28/pBXWPtiVK7F1eUQ.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/09/28/vGULFHrId6QiBOk.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/09/28/UckR72P34zrGJ1F.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/09/28/72AefYdUGnuIH6z.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/09/28/D7ybZBFTzgaq95s.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/09/28/8bQWMYn3OAUprvz.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/09/28/vg94HX1jbt5RMeP.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/09/28/lqJryUVKOADpzjY.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/28/Sig7XoEqM3Wrn5m.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/09/28/RH5NXz9fjgDynhW.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/28/nENBSoq5Le3T8uD.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/09/28/kePBYE8vhiswpm5.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/09/28/7GZsdJnpB5RDxQy.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/09/28/teYO9Q8rPohwbmM.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/09/28/TzYHVxylI9UsAZi.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/09/28/4yHno6OWgEqIlVD.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/09/28/rWYc4xvgHw7MmnA.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/09/28/pEygFjRdqb2PzcX.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/09/28/uyv1iWCnsJaFoGw.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/09/28/2AEHFBd1v8JL9kO.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/09/28/Hgm5Vcl8NtDpAqu.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/09/28/Gkz1P6seE2VWpUK.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/09/28/u1EaUeFIWLDVywC.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/09/28/Ii6m5XApF4ubLG3.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/09/28/n96POY7rF4jeSpm.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/09/28/C3dLy6A7asBFlq5.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/09/28/QzP38VLvIWNgu5X.jpg">
+<meta property="og:updated_time" content="2019-09-28T08:03:28.266Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Zotero Guide">
+<meta name="twitter:description" content="一、安装及配置注意：注册邮箱中含有下划线(“_“)，可能导致zotero和坚果云的webdav同步一直验证不通过，因为中国邮箱允许“_“，而外国只允许”.” 。 1. 下载安装 独立版：软件主体，承载了绝大多数功能 浏览器插件：将文献从网页收录到独立版内 打开下载链接，页面左侧为独立版，右侧为浏览器插件，按常规下载安装即可。  2. 初始设定修改数据存储位置( 建议所有系统修改，对 Windows">
+<meta name="twitter:image" content="https://i.loli.net/2019/09/28/pBXWPtiVK7F1eUQ.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://yuzhujia.github.io/2019/09/28/Zotero-Guide/">
+
+
+
+
+
+<link href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css" rel="stylesheet">
+  <title>Zotero Guide | Fearless World</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Fearless World</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">YuzhuJia's blog</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-board">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-newspaper-o"></i> <br>
+            
+            board
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://yuzhujia.github.io/2019/09/28/Zotero-Guide/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YuzhuJia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/myphoto.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fearless World">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Zotero Guide</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-28T09:34:16+08:00">
+                2019-09-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  2.7k
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="一、安装及配置"><a href="#一、安装及配置" class="headerlink" title="一、安装及配置"></a>一、安装及配置</h4><p>注意：注册邮箱中含有下划线(“_“)，可能导致zotero和坚果云的webdav同步一直验证不通过，因为中国邮箱允许“_“，而外国只允许”.” 。</p>
+<h5 id="1-下载安装"><a href="#1-下载安装" class="headerlink" title="1. 下载安装"></a>1. 下载安装</h5><ul>
+<li>独立版：软件主体，承载了绝大多数功能</li>
+<li>浏览器插件：将文献从<u>网页收录到独立版</u>内</li>
+<li>打开<a href="https://link.zhihu.com/?target=https%3A//www.zotero.org/downloads" target="_blank" rel="noopener">下载链接</a>，页面左侧为独立版，右侧为浏览器插件，按常规下载安装即可。</li>
+</ul>
+<h5 id="2-初始设定"><a href="#2-初始设定" class="headerlink" title="2. 初始设定"></a>2. 初始设定</h5><h6 id="修改数据存储位置"><a href="#修改数据存储位置" class="headerlink" title="修改数据存储位置"></a>修改<code>数据存储位置</code></h6><p>( 建议所有系统修改，对 Windows 尤为重要 ) </p>
+<ul>
+<li>数据存储位置是 Zotero 本地<u>几乎所有的配置、文献数据库、插件数据库以及附件存放</u>的地方。该目录下的<code>storage子目录</code>，存放有本地所有文件类型的附件。</li>
+<li>选择<code>首选项→高级→文件和文件夹中的数据存储位置</code>。 点选<code>自定义</code>，改为自己顺手的位置( Windows 建议挪出 C 盘)。</li>
+<li>建议 Windows 上将数据<u>存储位置挪出C盘，避免重装系统造成的文献配置丢失</u>。 修改后 Zotero 会询问<code>重启，绝大多数配置会丢失，因此应首先修改</code>。</li>
+</ul>
+<h6 id="设置同步账户并取消内置附件同步"><a href="#设置同步账户并取消内置附件同步" class="headerlink" title="设置同步账户并取消内置附件同步"></a>设置同步账户并取消内置附件同步</h6><p><a href="https://link.zhihu.com/?target=https%3A//www.zotero.org/user/register/" target="_blank" rel="noopener">注册 Zotero 账户</a></p>
+<ul>
+<li>在<code>首选项→同步→设置</code>中填写账号密码。注册过程<u>含Google人机验证，须科学上网</u>。</li>
+<li>取消：<code>首选项→同步→设置</code>中文件同步下面两个选项的勾选。详见 [3. 附件同步](#####3. 附件同步) </li>
+<li>Zotero 免费账户仅含 300 MB 空间，且仅用于同步附件，故取消内置文件同步。想获得更多空间，以及更灵活的方案，参考 [3. 附件同步](#####3. 附件同步) </li>
+</ul>
+<h6 id="取消自动生成快照"><a href="#取消自动生成快照" class="headerlink" title="取消自动生成快照"></a>取消自动生成快照</h6><ul>
+<li><p>在<code>首选项→常规</code>取消自动生成快照。</p>
+</li>
+<li><p>快照: 离线网页 快照<u>可读性差异大，且包含大量零散文件。</u></p>
+</li>
+<li><p>可读性好的网页，可手动保存快照。</p>
+</li>
+</ul>
+<h4 id="二、附件同步"><a href="#二、附件同步" class="headerlink" title="二、附件同步"></a>二、附件同步</h4><h5 id="1-基础概念"><a href="#1-基础概念" class="headerlink" title="1. 基础概念"></a>1. 基础概念</h5><h6 id="实现同步的方式"><a href="#实现同步的方式" class="headerlink" title="实现同步的方式"></a>实现同步的方式</h6><p>从<u>附件类型</u>上来看：</p>
+<ul>
+<li>同步<u>文件型</u>附件，包括：<ul>
+<li>Zotero 官网同步服务</li>
+<li>Webdav 同步</li>
+<li>软链接配合同步盘</li>
+</ul>
+</li>
+<li>同步<u>文件链接型</u>附件，包括：<ul>
+<li>ZotFile 配合同步盘</li>
+</ul>
+</li>
+</ul>
+<h6 id="Zotero-附件类型"><a href="#Zotero-附件类型" class="headerlink" title="Zotero 附件类型"></a>Zotero 附件类型</h6><ul>
+<li>文件: 图标为<u>系统默认图标或者 adobe 红</u>，是 Zotero 默认的附件格式，存放在<code>&lt;数据存储位置&gt;/storage</code>内一个<code>8位数字和字母的子目录</code>中。</li>
+<li>文件链接: 图标为<u>白色加小铁链</u>，通常由 <u>ZotFile 生成</u>，实际<u>保存在</u><code>链接附件的根目录</code>下。</li>
+<li>url 链接: 图标为<u>蓝色加小铁链</u>，实际为文件的<u>网址，联网时才能打开</u>。</li>
+</ul>
+<p>因此，本地只保存有文件与文件链接类型的附件。</p>
+<h6 id="两类方法使用上的优劣"><a href="#两类方法使用上的优劣" class="headerlink" title="两类方法使用上的优劣"></a>两类方法使用上的优劣</h6><ul>
+<li><p>文件附件：</p>
+<ul>
+<li>劣势：<u>路径自定义程度低</u>，&lt;数据存储位置&gt;/storage或软链接内8位数字和字母组成的子目录。</li>
+<li>优势：删除题录，附件随之删除</li>
+</ul>
+</li>
+<li><p>文件链接附件(特指由 ZotFile 生成):</p>
+<ul>
+<li>优势：路径自定义程度高</li>
+<li>劣势：<u>删除题录，附件不会随之删除</u>，链接附件的根目录概念略费解。</li>
+</ul>
+</li>
+</ul>
+<h5 id="2-Webdav-同步"><a href="#2-Webdav-同步" class="headerlink" title="2. Webdav 同步"></a>2. Webdav 同步</h5><p>Zotero 官方报道已经成功配置 Webdav 的服务见<a href="https://link.zhihu.com/?target=https%3A//www.zotero.org/support/kb/webdav_services" target="_blank" rel="noopener">List of WebDAV services</a>。</p>
+<p>此外，<a href="https://link.zhihu.com/?target=https%3A//www.jianguoyun.com/" target="_blank" rel="noopener">坚果云</a>也支持 Webdav 的服务，配置方法见坚果云官方帮助：<a href="https://link.zhihu.com/?target=http%3A//help.jianguoyun.com/%3Fp%3D3168" target="_blank" rel="noopener">webdav 连接坚果云</a>，其收费方案见<a href="https://link.zhihu.com/?target=https%3A//www.jianguoyun.com/s/pricing" target="_blank" rel="noopener">坚果云收费方案</a>(包括免费方案)。</p>
+<p>开启坚果云的第三方应用管理</p>
+<ul>
+<li><p>登录网页端坚果云账号，点击右上角的<code>账号名称——账户信息——安全选项——第三方应用管理——添加应用密码</code>。应用名称我写的zotero，之后会自己<code>生成一个应用密码</code>。如下图所示：</p>
+<p><img src="https://i.loli.net/2019/09/28/pBXWPtiVK7F1eUQ.jpg" alt="3.jpg"></p>
+</li>
+<li><p>打开zotero，<code>编辑——首选项——同步——文件同步</code>，使用zotero改成WebDAV，然后复制刚才坚果云内第三方应用管理的<code>服务器地址、账户和密码</code>，密码点击下面zotero对应的”显示“复制即可。全部填入后点击下面<code>Verify Server</code>按钮。</p>
+<p><img src="https://i.loli.net/2019/09/28/vGULFHrId6QiBOk.jpg" alt="4.jpg"></p>
+</li>
+</ul>
+<h5 id="3-Papership-IOS"><a href="#3-Papership-IOS" class="headerlink" title="3. Papership (IOS)"></a>3. Papership (IOS)</h5><p><code>Papership</code> 使用坚果云 WebDav先将 Zotero 中的 webdav 重置，然后重置 Papership 的 webdav。</p>
+<p>如果不行，在<code>坚果云的 zotero 文件夹中创建空白的 lastsync.txt 文件</code>，重试 Papership 的 webdav 连接。(<u>不要</u>在”我的坚果云“文件夹下建立！这是为了避免软件不支持中文。)</p>
+<p>优点：跨平台设备同步，支持，配置难度，简单，无需其他客户端</p>
+<p>缺点: <u>继承文件附件缺点 + 不支持断点续传 + 单文件不可超过100MB</u>(坚果云政策)。</p>
+<h5 id="4-ZotFile-配合同步盘"><a href="#4-ZotFile-配合同步盘" class="headerlink" title="4. ZotFile 配合同步盘"></a>4. ZotFile 配合同步盘</h5><h6 id="配置附件链接根目录"><a href="#配置附件链接根目录" class="headerlink" title="配置附件链接根目录"></a>配置附件链接根目录</h6><p><code>链接附件的根目录</code>是文件链接<u>附件的实际位置</u>，当 Zotero 访问文件链接附件时，会访问<u>此目录下的相对路径</u>。为了达到<u>同步附件</u>的目的，<u>需要将链接附件的根目录设置为同步盘的子目录</u>。</p>
+<blockquote>
+<p>什么叫相对/绝对路径？ 并不难理解，但可能不常接触。对时间而言，明天是个相对日期，公元2011年11月11日是个绝对的日期（在地球上，没啥歧义）。路径也是如此，<u>对 Windows 自 盘符: 开始，到文件夹或文件结束</u>的就是文件的<u>绝对路径</u>，对 Linux,macOS 而言 / 开始（~ 开始也能算）就叫做绝对路径，同样<u>到文件夹或文件</u>就叫做<u>相对路径</u>。以上看不懂也没关系，跟本文设置即可。</p>
+</blockquote>
+<p>修改配置，设置<code>首选项→高级→文件和文件夹</code>中<u>链接附件的根目录</u>。<code>D:\27_Zotero\attachment</code></p>
+<p><img src="https://i.loli.net/2019/09/28/UckR72P34zrGJ1F.jpg" alt="1.jpg"></p>
+<h6 id="下载安装-ZotFilefor"><a href="#下载安装-ZotFilefor" class="headerlink" title="下载安装 ZotFilefor"></a>下载安装 ZotFilefor</h6><p>Zotero 5.x: <a href="https://link.zhihu.com/?target=https%3A//github.com/jlegewie/zotfile/releases/download/v5.0.9/zotfile-5.0.9-fx.xpi" target="_blank" rel="noopener">5.0.9</a>。下载后在 Zotero 中打开<code>工具→插件</code>，按<code>右上角齿轮选择Install Add-on Form File ..</code>.，选中刚刚下载的<code>zotfile-x.x.x-fx.xpi</code>文件进行安装( Mac 和 Win 版本可以<u>拖拽</u>，为了通用性，不再赘述)。</p>
+<h6 id="配置-ZotFile"><a href="#配置-ZotFile" class="headerlink" title="配置 ZotFile"></a>配置 ZotFile</h6><p>打开<code>ZotFile Preferences ...，General Settings标签页</code>，<code>Source Folder for Attaching new Files</code>设置为<u>数据存储位置下的storage</u>。<code>D:\27_Zotero\storage</code></p>
+<p><code>Location of Files</code>设置为<u>链接附件的根目录</u>。<code>D:\27_Zotero\attachment</code></p>
+<p><img src="https://i.loli.net/2019/09/28/72AefYdUGnuIH6z.jpg" alt="2.jpg"></p>
+<h6 id="同步"><a href="#同步" class="headerlink" title="同步"></a>同步</h6><p>开启同步就好了，对于<u>已经存在本地的附件</u>，请选中所有条目，<code>右键Manage Attachments→Rename Attachments</code>。</p>
+<h6 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h6><p>目前，webdav 打开后，会对 Zotfile 产生附件链接产生影响，原因暂时不明。</p>
+<ul>
+<li><p><u>软链接</u>同步<u>变更</u>为 ZotFile 附件链接同步</p>
+<p> 安装 ZotFile，保持附件链接根目录不变，剩下都按照本文叙述来，<u>ZotFile 重命名后，再修改附件链接根目录。</u></p>
+</li>
+<li><p><u>修改目录/更换网盘</u> </p>
+<p>其实本质还是改目录，将<u>附件链接根目录剪切到新位置</u>，<u>修改附件链接根目录和Location of Files为新位置即可。</u></p>
+</li>
+<li><p>跨平台设备同步：支持，配置难度: 中等；</p>
+</li>
+<li><p>缺点: <u>继承文件链接缺点。</u></p>
+</li>
+</ul>
+<h4 id="三、使用指南"><a href="#三、使用指南" class="headerlink" title="三、使用指南"></a>三、使用指南</h4><h5 id="1-新建分类"><a href="#1-新建分类" class="headerlink" title="1. 新建分类"></a>1. 新建分类</h5><p><code>右键我的文库→右键→新建分类→输入名称</code></p>
+<p><img src="https://i.loli.net/2019/09/28/D7ybZBFTzgaq95s.jpg" alt="5.jpg"></p>
+<h5 id="2-英文文献信息导入"><a href="#2-英文文献信息导入" class="headerlink" title="2. 英文文献信息导入"></a>2. 英文文献信息导入</h5><p>在<code>新建目录下→鼠标拖入英文文献→右键重新抓取PDF文件的元数据（新版本直接抓取）→获取文献基本信息</code></p>
+<p>备注：一些时间久远的英文论文也不能直接抓取数据，具体信息抓取方法参照<code>第四部分</code>中文文献的信息导入。有些论文需要<u>科学上网</u>才能抓取数据。</p>
+<p><img src="https://i.loli.net/2019/09/28/8bQWMYn3OAUprvz.jpg" alt="6.jpg"></p>
+<p><img src="https://i.loli.net/2019/09/28/vg94HX1jbt5RMeP.jpg" alt="7.jpg"></p>
+<p><img src="https://i.loli.net/2019/09/28/lqJryUVKOADpzjY.png" alt="8.png"></p>
+<h5 id="3-中文文献信息导入"><a href="#3-中文文献信息导入" class="headerlink" title="3. 中文文献信息导入"></a>3. 中文文献信息导入</h5><p>在<code>百度学术搜索文献→点击批量引用→导出到BibTex→下载</code></p>
+<p><img src="https://i.loli.net/2019/09/28/Sig7XoEqM3Wrn5m.jpg" alt="9.jpg"></p>
+<p><img src="https://i.loli.net/2019/09/28/RH5NXz9fjgDynhW.png" alt="12.png"></p>
+<p>用<u>记事本打开</u>下载好的.bib文件→<u>复制</u>全部内容</p>
+<p><img src="https://i.loli.net/2019/09/28/nENBSoq5Le3T8uD.jpg" alt="11.jpg"></p>
+<p> Zotero界面 <code>文件一栏→选择从剪贴板导入</code></p>
+<p><img src="https://i.loli.net/2019/09/28/kePBYE8vhiswpm5.jpg" alt="12.jpg"></p>
+<p>将PDF文件<u>鼠标拖至</u>刚<u>导入文件成为其子文件</u>→完成中文文献的信息抓取</p>
+<h5 id="4-插入文献"><a href="#4-插入文献" class="headerlink" title="4. 插入文献"></a>4. 插入文献</h5><p><u>Word中</u>点击菜单栏中的<code>“Zotero”工具栏→选择要引用的方式</code>（默认选项没有的引用方式参见第六部分）</p>
+<p><img src="https://i.loli.net/2019/09/28/7GZsdJnpB5RDxQy.jpg" alt="14.jpg"></p>
+<p><img src="https://i.loli.net/2019/09/28/teYO9Q8rPohwbmM.jpg" alt="15.jpg"></p>
+<p><code>鼠标</code>光标<code>置于</code>要插入<code>上角标处（即下图2处）</code>→点击下图<code>1处所</code>示图标→2处出现红框内文字，<code>3处</code>出现<code>Zotero快速格式化引文</code>→点击快速格式化引文<code>左边图标</code>选择<code>经典视图</code></p>
+<p><img src="https://i.loli.net/2019/09/28/TzYHVxylI9UsAZi.jpg" alt="16"></p>
+<p>出现<code>“添加/编辑引文”对话框→选择要引入的文献，点击OK</code></p>
+<p><img src="https://i.loli.net/2019/09/28/4yHno6OWgEqIlVD.jpg" alt="17.jpg"></p>
+<p>下图<code>1处</code>出现<code>上角标</code>→<code>光标</code>置于<code>参考文献3</code>处→<code>点击2处</code>→<code>3处引入参考文献成功</code></p>
+<p><img src="https://i.loli.net/2019/09/28/rWYc4xvgHw7MmnA.jpg" alt="18.jpg"></p>
+<p><img src="https://i.loli.net/2019/09/28/pEygFjRdqb2PzcX.jpg" alt="19.jpg"></p>
+<p>其他文献可依次插入。Zotero有个特别强大的功能，<u>如果中间一部分引文被删除，点击工具栏的Refresh，上角标以及参考文献会自动更新。</u></p>
+<h5 id="5-寻找非默认引文格式"><a href="#5-寻找非默认引文格式" class="headerlink" title="5. 寻找非默认引文格式"></a>5. 寻找非默认引文格式</h5><p><code>点击Document Preferences→选择右下角管理样式→在 Zotero Style Repository对话框</code>寻找想要的引文格式</p>
+<p><img src="https://i.loli.net/2019/09/28/uyv1iWCnsJaFoGw.jpg" alt="20.jpg"></p>
+<p><img src="https://i.loli.net/2019/09/28/2AEHFBd1v8JL9kO.jpg" alt="21.jpg"></p>
+<h5 id="6-界面说明"><a href="#6-界面说明" class="headerlink" title="6. 界面说明"></a>6. 界面说明</h5><p><img src="https://i.loli.net/2019/09/28/Hgm5Vcl8NtDpAqu.jpg" alt="22.jpg"></p>
+<p>左上方：文件的结构安排，可以创建<u>新文件夹对文献进行分类</u>、能够显示<u>重复条目</u>帮助快速找出删除、我的出版物功能；</p>
+<p>左下方：标签初始来源于文章的<u>关键字</u>，后期可以根据自己的需要自行<u>设置标签及标签颜色</u>；</p>
+<p>中间：文献条目，可以根据不同的标准<u>排序</u>；</p>
+<p>右边：显示<u>文章的详细信息</u>，这些信息在谷歌学术下载文献时会自动添加。</p>
+<h5 id="7-插件应用"><a href="#7-插件应用" class="headerlink" title="7. 插件应用"></a>7. 插件应用</h5><p><code>打开sci-hub插件</code>并<code>进入谷歌学术搜索</code>一篇文章，zotero插件变成<code>文件夹形状，点击插件</code>，进入<code>下载窗口进行选择</code>即可。</p>
+<p><img src="https://i.loli.net/2019/09/28/Gkz1P6seE2VWpUK.jpg" alt="23.jpg"></p>
+<p>这时会出现两种情况：</p>
+<ul>
+<li><p><u>PDF和文件信息</u>一起保存，这时zotfile也会<u>自动把文件名字改成设置好的格</u>式，这是最理想的一种下载方式</p>
+<p><img src="https://i.loli.net/2019/09/28/u1EaUeFIWLDVywC.jpg" alt="24.jpg"></p>
+</li>
+<li><p><u>只保存了文件信息，PDF没有一起保存</u>，而是返回软件后<code>提示保存文件到本地</code>。<u>这个时候保存到默认下载的位置，不要随意更改保存的位置！</u></p>
+<p><img src="https://i.loli.net/2019/09/28/Ii6m5XApF4ubLG3.jpg" alt="25.jpg"></p>
+<p>保存完毕之后返回到<code>软件界面，右击刚才下载的文章，选择Attach New File</code>，刚才下载好的PDF文件就会<u>自动被放在这个目录下，并且zotfile自动将文件名改好</u>.</p>
+<p><img src="https://i.loli.net/2019/09/28/n96POY7rF4jeSpm.jpg" alt="26.jpg"></p>
+</li>
+<li><p>如果zotfile突然抽风，<u>没有帮我们自动改名字</u>，可以通过下面这个步骤进行更改：<code>右击需要改名字的PDF文件——Manage Attachments——Rename Attachments</code>。</p>
+<p><img src="https://i.loli.net/2019/09/28/C3dLy6A7asBFlq5.jpg" alt="27.jpg"></p>
+</li>
+</ul>
+<p><u>snapshot是对网页的截图</u>。设置好WebDAV后，这些文件都会被同步到云端，可以通过移动端的papership同步查看。</p>
+<p><img src="https://i.loli.net/2019/09/28/QzP38VLvIWNgu5X.jpg" alt="28.jpg"></p>
+
+      
+    </div>
+    
+    
+    
+	
+	
+      <div>
+        
+<div style="text-align:center;color: #5B7FA7;font-size:14px;">
+------ The End <i class="fa fa-paw"></i> Thank You ------</div>
+
+      </div>
+	
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:</strong>
+    YuzhuJia
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link:</strong>
+    <a href="https://yuzhujia.github.io/2019/09/28/Zotero-Guide/" title="Zotero Guide">https://yuzhujia.github.io/2019/09/28/Zotero-Guide/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice: </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/zotero/" rel="tag"><i class="fa fa-tag"></i> zotero</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/19/Learning-from-imbalanced-data/" rel="next" title="Learning from imbalanced data">
+                <i class="fa fa-chevron-left"></i> Learning from imbalanced data
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/myphoto.jpg" alt="YuzhuJia">
+            
+              <p class="site-author-name" itemprop="name">YuzhuJia</p>
+              <p class="site-description motion-element" itemprop="description">Welcome & Study with me :)</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、安装及配置"><span class="nav-number">1.</span> <span class="nav-text">一、安装及配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-下载安装"><span class="nav-number">1.1.</span> <span class="nav-text">1. 下载安装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-初始设定"><span class="nav-number">1.2.</span> <span class="nav-text">2. 初始设定</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#修改数据存储位置"><span class="nav-number">1.2.1.</span> <span class="nav-text">修改数据存储位置</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#设置同步账户并取消内置附件同步"><span class="nav-number">1.2.2.</span> <span class="nav-text">设置同步账户并取消内置附件同步</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#取消自动生成快照"><span class="nav-number">1.2.3.</span> <span class="nav-text">取消自动生成快照</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、附件同步"><span class="nav-number">2.</span> <span class="nav-text">二、附件同步</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-基础概念"><span class="nav-number">2.1.</span> <span class="nav-text">1. 基础概念</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#实现同步的方式"><span class="nav-number">2.1.1.</span> <span class="nav-text">实现同步的方式</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Zotero-附件类型"><span class="nav-number">2.1.2.</span> <span class="nav-text">Zotero 附件类型</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#两类方法使用上的优劣"><span class="nav-number">2.1.3.</span> <span class="nav-text">两类方法使用上的优劣</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-Webdav-同步"><span class="nav-number">2.2.</span> <span class="nav-text">2. Webdav 同步</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-Papership-IOS"><span class="nav-number">2.3.</span> <span class="nav-text">3. Papership (IOS)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-ZotFile-配合同步盘"><span class="nav-number">2.4.</span> <span class="nav-text">4. ZotFile 配合同步盘</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#配置附件链接根目录"><span class="nav-number">2.4.1.</span> <span class="nav-text">配置附件链接根目录</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#下载安装-ZotFilefor"><span class="nav-number">2.4.2.</span> <span class="nav-text">下载安装 ZotFilefor</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#配置-ZotFile"><span class="nav-number">2.4.3.</span> <span class="nav-text">配置 ZotFile</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#同步"><span class="nav-number">2.4.4.</span> <span class="nav-text">同步</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#其他"><span class="nav-number">2.4.5.</span> <span class="nav-text">其他</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、使用指南"><span class="nav-number">3.</span> <span class="nav-text">三、使用指南</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-新建分类"><span class="nav-number">3.1.</span> <span class="nav-text">1. 新建分类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-英文文献信息导入"><span class="nav-number">3.2.</span> <span class="nav-text">2. 英文文献信息导入</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-中文文献信息导入"><span class="nav-number">3.3.</span> <span class="nav-text">3. 中文文献信息导入</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-插入文献"><span class="nav-number">3.4.</span> <span class="nav-text">4. 插入文献</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-寻找非默认引文格式"><span class="nav-number">3.5.</span> <span class="nav-text">5. 寻找非默认引文格式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-界面说明"><span class="nav-number">3.6.</span> <span class="nav-text">6. 界面说明</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-插件应用"><span class="nav-number">3.7.</span> <span class="nav-text">7. 插件应用</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YuzhuJia</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">8.7k</span>
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+</body>
+</html>
