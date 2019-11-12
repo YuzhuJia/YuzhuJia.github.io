@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+  <script>
+	(function(){
+		if('jyz'){
+			if (prompt('Please enter the password') !== 'jyz'){
+				alert('Wrong！');
+				history.back();
+			}
+		}
+	})();
+  </script>
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="DL,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Deep LearningIan Goodfellow and Yoshua Bengio and Aaron Courville Chapter12 Applications1. Large-Scale Deep LearningCPU v.s GP-GPUs CPU ​     中央处理器 （英语：Central Processing Unit，缩写：CPU）是计算机的主要设备之一，功能主要是">
+<meta name="keywords" content="DL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DL Chap12 Applications">
+<meta property="og:url" content="https://yuzhujia.github.io/2019/11/12/DL-Chap12-Applications/index.html">
+<meta property="og:site_name" content="Fearless World">
+<meta property="og:description" content="Deep LearningIan Goodfellow and Yoshua Bengio and Aaron Courville Chapter12 Applications1. Large-Scale Deep LearningCPU v.s GP-GPUs CPU ​     中央处理器 （英语：Central Processing Unit，缩写：CPU）是计算机的主要设备之一，功能主要是">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://i.loli.net/2019/11/12/nOYK8Z4fa7HMrlb.png">
+<meta property="og:image" content="https://i.loli.net/2019/11/12/YKw132QF6AyhNxj.png">
+<meta property="og:image" content="https://i.loli.net/2019/11/12/TCiMrHt3KuSWqhP.png">
+<meta property="og:image" content="https://i.loli.net/2019/11/12/FPbpoSRQtI7HEev.png">
+<meta property="og:image" content="https://i.loli.net/2019/11/12/69gkGb7EeY1szKo.png">
+<meta property="og:image" content="https://i.loli.net/2019/11/12/3dLH1yWtwuUTcKA.png">
+<meta property="og:image" content="https://i.loli.net/2019/11/12/DNerfPOB6GbtEcW.png">
+<meta property="og:image" content="https://i.loli.net/2019/11/12/7DezHwJbPGO1Zhn.png">
+<meta property="og:image" content="https://i.loli.net/2019/11/12/F8gHUsbAODR7cpC.png">
+<meta property="og:image" content="https://i.loli.net/2019/11/12/XTzuNwoRb2naFcx.png">
+<meta property="og:image" content="https://i.loli.net/2019/11/12/q51KetWwUAIoObQ.png">
+<meta property="og:image" content="https://i.loli.net/2019/11/12/VN5tovJ2RfGqskm.png">
+<meta property="og:image" content="https://i.loli.net/2019/11/12/45irQE6vLHWsopN.png">
+<meta property="og:image" content="https://i.loli.net/2019/11/12/SEfMuOh1VeUg2Xb.png">
+<meta property="og:image" content="https://i.loli.net/2019/11/12/JYMXLnjOV7glF8w.png">
+<meta property="og:image" content="https://i.loli.net/2019/11/12/OdWFJqE6GIi8LNk.png">
+<meta property="og:image" content="https://i.loli.net/2019/11/12/5w8y7buPQXNi1pO.png">
+<meta property="og:image" content="https://i.loli.net/2019/11/12/LKd8Bbfx4qgyoYp.png">
+<meta property="og:image" content="https://i.loli.net/2019/11/12/eGcAwbOBkzRhj6o.png">
+<meta property="og:updated_time" content="2019-11-12T08:23:30.302Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DL Chap12 Applications">
+<meta name="twitter:description" content="Deep LearningIan Goodfellow and Yoshua Bengio and Aaron Courville Chapter12 Applications1. Large-Scale Deep LearningCPU v.s GP-GPUs CPU ​     中央处理器 （英语：Central Processing Unit，缩写：CPU）是计算机的主要设备之一，功能主要是">
+<meta name="twitter:image" content="https://i.loli.net/2019/11/12/nOYK8Z4fa7HMrlb.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://yuzhujia.github.io/2019/11/12/DL-Chap12-Applications/">
+
+
+
+
+
+<link href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css" rel="stylesheet">
+  <title>DL Chap12 Applications | Fearless World</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Fearless World</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">YuzhuJia's blog</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-board">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-newspaper-o"></i> <br>
+            
+            board
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://yuzhujia.github.io/2019/11/12/DL-Chap12-Applications/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YuzhuJia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/myphoto.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fearless World">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">DL Chap12 Applications</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-12T10:29:42+08:00">
+                2019-11-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  1.1k
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="Deep-Learning"><a href="#Deep-Learning" class="headerlink" title="Deep Learning"></a>Deep Learning</h3><p>Ian Goodfellow and Yoshua Bengio and Aaron Courville</p>
+<h3 id="Chapter12-Applications"><a href="#Chapter12-Applications" class="headerlink" title="Chapter12 Applications"></a>Chapter12 Applications</h3><h4 id="1-Large-Scale-Deep-Learning"><a href="#1-Large-Scale-Deep-Learning" class="headerlink" title="1. Large-Scale Deep Learning"></a>1. Large-Scale Deep Learning</h4><h5 id="CPU-v-s-GP-GPUs"><a href="#CPU-v-s-GP-GPUs" class="headerlink" title="CPU v.s GP-GPUs"></a>CPU v.s GP-GPUs</h5><p><img src="https://i.loli.net/2019/11/12/nOYK8Z4fa7HMrlb.png" alt="1.png"></p>
+<p>CPU</p>
+<p>​     <strong>中央处理器</strong> （英语：<strong>C</strong>entral <strong>P</strong>rocessing <strong>U</strong>nit，缩写：<strong>CPU</strong>）是计算机的主要设备之一，功能主要是<code>解释计算机指令</code>以及<code>处理</code>计算机软件中的<code>数据</code>。<code>计算机的可编程性</code>主要是指<code>对中央处理器的编程</code>。</p>
+<p>GP-GPUs</p>
+<p>​     <strong>图形处理单元上的通用计算</strong>（英语：General-purpose computing on graphics processing units，简称GPGPU或GP²U），是利用处理图形任务的<code>图形处理器来计算原本由中央处理器处理的</code>通用计算任务。由于现代图形处理器有强大的<code>并行处理能力和可编程流水线</code>，令图形处理器也可以处理<code>非图形数</code>据。 </p>
+<h5 id="分布式深度学习模型"><a href="#分布式深度学习模型" class="headerlink" title="分布式深度学习模型"></a>分布式深度学习模型</h5><p>模型并行+数据并行</p>
+<h6 id="模型并行"><a href="#模型并行" class="headerlink" title="模型并行"></a>模型并行</h6><p><img src="https://i.loli.net/2019/11/12/YKw132QF6AyhNxj.png" alt="2.png"></p>
+<h6 id="数据并行"><a href="#数据并行" class="headerlink" title="数据并行"></a>数据并行</h6><p><img src="https://i.loli.net/2019/11/12/TCiMrHt3KuSWqhP.png" alt="3.png"></p>
+<h6 id="算法并行：异步随机梯度下降"><a href="#算法并行：异步随机梯度下降" class="headerlink" title="算法并行：异步随机梯度下降"></a>算法并行：异步随机梯度下降</h6><p><strong>Asynchronous Stochastic Gradient Descent</strong>: allow multiple machines to compute multiple <code>gradient descent</code> steps in <code>parallel</code>.     <em>Dean et al. (2012).</em></p>
+<h5 id="Model-Compression"><a href="#Model-Compression" class="headerlink" title="Model Compression"></a>Model Compression</h5><p>模型压缩    <em>Bucilua et al., (2006)</em></p>
+<ul>
+<li><p>original, expensive model $\to$ a smaller model.</p>
+</li>
+<li><p>less memory and runtime to store and evaluate.</p>
+</li>
+</ul>
+<h5 id="Dynamic-Structure"><a href="#Dynamic-Structure" class="headerlink" title="Dynamic Structure"></a>Dynamic Structure</h5><p>动态结构    动态选择部分网络运行.</p>
+<p>Dynamic Structure: The <code>systems</code> that <code>have dynamic structure</code> in the graph describing the computation needed to process an input.</p>
+<p>Conditional computation: <code>dynamic structure</code> inside neural networks.</p>
+<h6 id="级联分类器"><a href="#级联分类器" class="headerlink" title="级联分类器"></a>级联分类器</h6><p>Cascade of classiers    <em>Viola and Jones (2001).</em></p>
+<p>When the goal is to detect the presence of <code>a rare object (or event)</code>.</p>
+<p><img src="https://i.loli.net/2019/11/12/FPbpoSRQtI7HEev.png" alt="4.png"></p>
+<h6 id="混合专家网络"><a href="#混合专家网络" class="headerlink" title="混合专家网络"></a>混合专家网络</h6><p>MOE: mixture of experts    <em>Nowlan, 1990; Jacobs et al., 1991</em></p>
+<p><img src="https://i.loli.net/2019/11/12/69gkGb7EeY1szKo.png" alt="5.png"></p>
+<ul>
+<li><p>底层(数据输入的下一层)分为多个专家；</p>
+</li>
+<li><p>Gate：用于给各个专家权重；</p>
+</li>
+<li><p>Hard mixture of experts    <em>Collobert et al., 2001, 2002</em></p>
+<p>只给出了一个权重。</p>
+</li>
+</ul>
+<h4 id="2-Computer-Vision"><a href="#2-Computer-Vision" class="headerlink" title="2. Computer Vision"></a>2. Computer Vision</h4><h5 id="Preprocessing"><a href="#Preprocessing" class="headerlink" title="Preprocessing"></a>Preprocessing</h5><ul>
+<li><p>Not always strictly necessary;</p>
+</li>
+<li><p>Formatting images to have the <code>same scale</code>.    <code>Not</code>-<em>Waibel et al., 1989</em></p>
+</li>
+<li><p>Dataset <code>augmentation</code>(training set).  <em>Krizhevsky et al., (2012)</em>.</p>
+</li>
+<li><p>Other kinds of preprocessing(train, test set).    <em>Krizhevsky et al., 2012</em></p>
+</li>
+</ul>
+<h5 id="Contrast-Normalization"><a href="#Contrast-Normalization" class="headerlink" title="Contrast Normalization"></a>Contrast Normalization</h5><h6 id="Contrast"><a href="#Contrast" class="headerlink" title="Contrast"></a>Contrast</h6><p><img src="https://i.loli.net/2019/11/12/3dLH1yWtwuUTcKA.png" alt="6.png"></p>
+<h6 id="Global-contrast-normalization-GCN"><a href="#Global-contrast-normalization-GCN" class="headerlink" title="Global contrast normalization (GCN)"></a>Global contrast normalization (GCN)</h6><p><img src="https://i.loli.net/2019/11/12/DNerfPOB6GbtEcW.png" alt="7.png"></p>
+<p>Sphering(whitening)(another preprocessing operation)<br>书上未作介绍</p>
+<p><img src="https://i.loli.net/2019/11/12/7DezHwJbPGO1Zhn.png" alt="8.png"></p>
+<h6 id="Local-contrast-normalization"><a href="#Local-contrast-normalization" class="headerlink" title="Local contrast normalization"></a>Local contrast normalization</h6><p>更注重边缘</p>
+<p><img src="https://i.loli.net/2019/11/12/F8gHUsbAODR7cpC.png" alt="9.png"></p>
+<h6 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h6><ul>
+<li><p><em>Pinto et al., 2008</em></p>
+</li>
+<li><p><em>Sermanet et al., 2012</em></p>
+</li>
+</ul>
+<h4 id="3-Speech-Recognition"><a href="#3-Speech-Recognition" class="headerlink" title="3. Speech Recognition"></a>3. Speech Recognition</h4><p>极大后验函数的思想</p>
+<p><img src="https://i.loli.net/2019/11/12/XTzuNwoRb2naFcx.png" alt="10.png"></p>
+<p>Progress:</p>
+<ul>
+<li>state-of-the-art speech recognition systems: <code>(HMMs)+(GMMs)</code>  <em>Bahl et al., 1987</em></li>
+<li>Using <code>neural networks</code> to replace <code>GMMs</code>.</li>
+<li><code>convolutional</code> networks   <em>Sainath et al.,2013</em></li>
+<li><code>End-to-end deep learning</code> speech recognition systems   <em>Graves et al. (2013), Graves et al., 2013</em></li>
+</ul>
+<h4 id="4-Natural-Language-Processing"><a href="#4-Natural-Language-Processing" class="headerlink" title="4. Natural Language Processing"></a>4. Natural Language Processing</h4><p>A language model : a <code>probability distribution</code> over sequences of <code>tokens</code> in a natural language.</p>
+<h5 id="n-gram"><a href="#n-gram" class="headerlink" title="n-gram"></a>n-gram</h5><ul>
+<li><p>The earliest successful language models.</p>
+</li>
+<li><p>chain rule</p>
+<p><img src="https://i.loli.net/2019/11/12/q51KetWwUAIoObQ.png" alt="11.png"></p>
+</li>
+<li><p>$P_n,P_{n-1}$ can be <code>computed</code> simply by <code>counting how many times</code> each possible n-gram occurs in the <code>training set</code>.</p>
+</li>
+<li><p>Smoothing($\frac{0}{<em>},\frac{</em>}{0}$)</p>
+<ul>
+<li><code>Adding nonzero probability</code> mass to all the possible next symbol values   <em>Chen and Goodman (1999)</em></li>
+<li><code>Mixture model</code> containing higher-order and lower-order n-gram models(<code>Back-off methods</code>).</li>
+</ul>
+</li>
+</ul>
+<h5 id="Neural-Language-Models-NLM"><a href="#Neural-Language-Models-NLM" class="headerlink" title="Neural Language Models(NLM)"></a>Neural Language Models(NLM)</h5><ul>
+<li>Using a <code>distributed representation</code> of words   <em>Bengio et al., 2001</em></li>
+<li>Overcome the<code>curse of dimensionality</code> problem.</li>
+<li>Recognize that two words are <code>similar</code> without losing the ability to <code>encode each word as distinct from the other</code>.</li>
+</ul>
+<h6 id="Words-embedded"><a href="#Words-embedded" class="headerlink" title="Words embedded"></a>Words embedded</h6><p>$$\omega:words \to R^n$$</p>
+<ul>
+<li><p>a parameterized function;</p>
+</li>
+<li><p>n=200~500​ ;</p>
+</li>
+<li><p>$words$ 是一个人为选择的知识库；</p>
+</li>
+<li><p>示例</p>
+<p><img src="https://i.loli.net/2019/11/12/VN5tovJ2RfGqskm.png" alt="12.png"></p>
+</li>
+</ul>
+<h6 id="High-Dimensional-Outputs"><a href="#High-Dimensional-Outputs" class="headerlink" title="High-Dimensional Outputs"></a>High-Dimensional Outputs</h6><p>词汇表大，Output的长度很大，softmax计算量大。</p>
+<ul>
+<li><p>Use of a Short List</p>
+<ul>
+<li>limiting the vocabulary size   <em>Bengio et al., 2001, 2003</em></li>
+<li>$V$ = a shortlist $L$(neural net) + a tail $T$ ($T = V/L$)(n-gram)   <em>Schwenk and Gauvain (2002) , Schwenk (2007).</em></li>
+</ul>
+</li>
+<li><p>Hierarchical(分层) Softmax</p>
+<p><em>Goodman, 2001</em></p>
+<p><img src="https://i.loli.net/2019/11/12/45irQE6vLHWsopN.png" alt="13.png"></p>
+</li>
+<li><p>Importance Sampling(梯度容易计算)</p>
+<ul>
+<li><p>梯度计算</p>
+<p><img src="https://i.loli.net/2019/11/12/SEfMuOh1VeUg2Xb.png" alt="14.png"></p>
+<ul>
+<li>$\frac{\partial a_{y}}{\partial \theta}$: pushing $a_y$ up.</li>
+<li>$\sum_{i} P(y=i | C) \frac{\partial a_{i}}{\partial \theta}$: pushing $a_i$ down for all i, with weight $P(i|C)$.</li>
+<li>由于$P(y=i|C)$的真实分布未知，使用Importance Sampling.</li>
+</ul>
+</li>
+<li><p>Biased importance sampling</p>
+<p>Biased体现在均值使用权重加和的形式。</p>
+<p><img src="https://i.loli.net/2019/11/12/JYMXLnjOV7glF8w.png" alt="15.png"></p>
+</li>
+</ul>
+</li>
+<li><p>Noise-Contrastive Estimation and Ranking Loss</p>
+<p>Noise-Contrastive Estimation in section 18.6.</p>
+<p>Ranking Loss：</p>
+<p><img src="https://i.loli.net/2019/11/12/OdWFJqE6GIi8LNk.png" alt="16.png"></p>
+<p>不必计算softmax.</p>
+</li>
+</ul>
+<h5 id="Combining-Neural-Language-Models-with-n-grams"><a href="#Combining-Neural-Language-Models-with-n-grams" class="headerlink" title="Combining Neural Language Models with n-grams"></a>Combining Neural Language Models with n-grams</h5><ul>
+<li><p>Advantages of n-gram</p>
+<ul>
+<li>achieve <code>high model capacity</code>;</li>
+<li>requiring very <code>little computation</code> to process an example.</li>
+</ul>
+</li>
+<li><p>Ensemble</p>
+<ul>
+<li>neural language model + n-gram language model</li>
+<li>1 + 1 or m + n;</li>
+<li><em>Mikolov et al. (2011a); (Mikolov et al.(2011b)</em><br><em>Mikolov et al. (2011a)</em> (ensemble to include a large array of models).</li>
+</ul>
+</li>
+</ul>
+<h5 id="Neural-Machine-Translation"><a href="#Neural-Machine-Translation" class="headerlink" title="Neural Machine Translation"></a>Neural Machine Translation</h5><h6 id="The-idea-of-encoder-and-decoder"><a href="#The-idea-of-encoder-and-decoder" class="headerlink" title="The idea of encoder and decoder"></a>The idea of encoder and decoder</h6><p><em>Allen 1987; Chrisman 1991; Forcada and eco 1997</em></p>
+<p><img src="https://i.loli.net/2019/11/12/5w8y7buPQXNi1pO.png" alt="17.png"></p>
+<h6 id="Using-an-Attention-Mechanism-and-Aligning-Pieces-of-Data"><a href="#Using-an-Attention-Mechanism-and-Aligning-Pieces-of-Data" class="headerlink" title="Using an Attention Mechanism and Aligning Pieces of Data"></a>Using an Attention Mechanism and Aligning Pieces of Data</h6><p>A modern attention mechanism, as introduced by <em>Bahdanau et al.(2015)</em>, is <code>essentially a weighted average</code>.</p>
+<p><img src="https://i.loli.net/2019/11/12/LKd8Bbfx4qgyoYp.png" alt="18.png"></p>
+<ul>
+<li>加权平均来体现注意力机制，一部分特征被注意；</li>
+<li>权重$\alpha^{(i-1)}$来自于softmax；</li>
+<li>特征$h^{(t-1)}$可以来自于原始样本/隐藏层。</li>
+</ul>
+<p>An attention-based system as having <code>three components</code>:</p>
+<ul>
+<li>reads: reads raw data (such as source words in a source sentence) and<code>converts them into distributed representations</code>.</li>
+<li>memory: A list of <code>feature vectors</code> storing the output of the reader.</li>
+<li>A process: <code>exploits</code> the content of the <code>memory</code> to sequentially perform a task — generates the translated sentence.</li>
+<li><em>Koisk et al., 2014</em></li>
+</ul>
+<h4 id="5-Other-Applications"><a href="#5-Other-Applications" class="headerlink" title="5. Other Applications"></a>5. Other Applications</h4><h5 id="Recommender-Systems"><a href="#Recommender-Systems" class="headerlink" title="Recommender Systems"></a>Recommender Systems</h5><ul>
+<li><p>A <span style="background-color: #A5DEF1;">nonparametric approaches</span> and parametric methods</p>
+</li>
+<li><p><em>Bennett and Lanning, 2007</em></p>
+<p><img src="https://i.loli.net/2019/11/12/eGcAwbOBkzRhj6o.png" alt="19.png"></p>
+</li>
+<li><p>目标：$\min \left(\hat{R}<em>{u, i}-R</em>{u, i}\right)^{2}$</p>
+</li>
+<li><p>Exploitation(利用) v.s. Exploration(探索)</p>
+</li>
+</ul>
+<h5 id="Knowledge-Representation-Reasoning-and-Question-Answering"><a href="#Knowledge-Representation-Reasoning-and-Question-Answering" class="headerlink" title="Knowledge Representation, Reasoning and Question Answering"></a>Knowledge Representation, Reasoning and Question Answering</h5><h6 id="Knowledge-base"><a href="#Knowledge-base" class="headerlink" title="Knowledge base"></a>Knowledge base</h6><p>database, such as Freebase, Wikibase, WordNet.</p>
+<h6 id="Relation"><a href="#Relation" class="headerlink" title="Relation"></a>Relation</h6><p>subject,verb,object</p>
+<h6 id="Question-answering-system"><a href="#Question-answering-system" class="headerlink" title="Question answering system"></a>Question answering system</h6><p>knowledge of relations combined with a<br>reasoning process and an understanding of natural language.</p>
+
+      
+    </div>
+    
+    
+    
+	
+	
+      <div>
+        
+<div style="text-align:center;color: #5B7FA7;font-size:14px;">
+------ The End <i class="fa fa-paw"></i> Thank You ------</div>
+
+      </div>
+	
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:</strong>
+    YuzhuJia
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link:</strong>
+    <a href="https://yuzhujia.github.io/2019/11/12/DL-Chap12-Applications/" title="DL Chap12 Applications">https://yuzhujia.github.io/2019/11/12/DL-Chap12-Applications/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice: </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/DL/" rel="tag"><i class="fa fa-tag"></i> DL</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/29/吴恩达机器学习-Week1/" rel="next" title="吴恩达机器学习-Week1">
+                <i class="fa fa-chevron-left"></i> 吴恩达机器学习-Week1
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/11/12/DL-Chap9-Convolutional-Networks/" rel="prev" title="DL Chap9 Convolutional Networks">
+                DL Chap9 Convolutional Networks <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/myphoto.jpg" alt="YuzhuJia">
+            
+              <p class="site-author-name" itemprop="name">YuzhuJia</p>
+              <p class="site-description motion-element" itemprop="description">Welcome & Study with me :)</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Deep-Learning"><span class="nav-number">1.</span> <span class="nav-text">Deep Learning</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chapter12-Applications"><span class="nav-number">2.</span> <span class="nav-text">Chapter12 Applications</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Large-Scale-Deep-Learning"><span class="nav-number">2.1.</span> <span class="nav-text">1. Large-Scale Deep Learning</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#CPU-v-s-GP-GPUs"><span class="nav-number">2.1.1.</span> <span class="nav-text">CPU v.s GP-GPUs</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#分布式深度学习模型"><span class="nav-number">2.1.2.</span> <span class="nav-text">分布式深度学习模型</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#模型并行"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">模型并行</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#数据并行"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">数据并行</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#算法并行：异步随机梯度下降"><span class="nav-number">2.1.2.3.</span> <span class="nav-text">算法并行：异步随机梯度下降</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Model-Compression"><span class="nav-number">2.1.3.</span> <span class="nav-text">Model Compression</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Dynamic-Structure"><span class="nav-number">2.1.4.</span> <span class="nav-text">Dynamic Structure</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#级联分类器"><span class="nav-number">2.1.4.1.</span> <span class="nav-text">级联分类器</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#混合专家网络"><span class="nav-number">2.1.4.2.</span> <span class="nav-text">混合专家网络</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Computer-Vision"><span class="nav-number">2.2.</span> <span class="nav-text">2. Computer Vision</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Preprocessing"><span class="nav-number">2.2.1.</span> <span class="nav-text">Preprocessing</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Contrast-Normalization"><span class="nav-number">2.2.2.</span> <span class="nav-text">Contrast Normalization</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Contrast"><span class="nav-number">2.2.2.1.</span> <span class="nav-text">Contrast</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Global-contrast-normalization-GCN"><span class="nav-number">2.2.2.2.</span> <span class="nav-text">Global contrast normalization (GCN)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Local-contrast-normalization"><span class="nav-number">2.2.2.3.</span> <span class="nav-text">Local contrast normalization</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Methods"><span class="nav-number">2.2.2.4.</span> <span class="nav-text">Methods</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-Speech-Recognition"><span class="nav-number">2.3.</span> <span class="nav-text">3. Speech Recognition</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-Natural-Language-Processing"><span class="nav-number">2.4.</span> <span class="nav-text">4. Natural Language Processing</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#n-gram"><span class="nav-number">2.4.1.</span> <span class="nav-text">n-gram</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Neural-Language-Models-NLM"><span class="nav-number">2.4.2.</span> <span class="nav-text">Neural Language Models(NLM)</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Words-embedded"><span class="nav-number">2.4.2.1.</span> <span class="nav-text">Words embedded</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#High-Dimensional-Outputs"><span class="nav-number">2.4.2.2.</span> <span class="nav-text">High-Dimensional Outputs</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Combining-Neural-Language-Models-with-n-grams"><span class="nav-number">2.4.3.</span> <span class="nav-text">Combining Neural Language Models with n-grams</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Neural-Machine-Translation"><span class="nav-number">2.4.4.</span> <span class="nav-text">Neural Machine Translation</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#The-idea-of-encoder-and-decoder"><span class="nav-number">2.4.4.1.</span> <span class="nav-text">The idea of encoder and decoder</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Using-an-Attention-Mechanism-and-Aligning-Pieces-of-Data"><span class="nav-number">2.4.4.2.</span> <span class="nav-text">Using an Attention Mechanism and Aligning Pieces of Data</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-Other-Applications"><span class="nav-number">2.5.</span> <span class="nav-text">5. Other Applications</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Recommender-Systems"><span class="nav-number">2.5.1.</span> <span class="nav-text">Recommender Systems</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Knowledge-Representation-Reasoning-and-Question-Answering"><span class="nav-number">2.5.2.</span> <span class="nav-text">Knowledge Representation, Reasoning and Question Answering</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Knowledge-base"><span class="nav-number">2.5.2.1.</span> <span class="nav-text">Knowledge base</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Relation"><span class="nav-number">2.5.2.2.</span> <span class="nav-text">Relation</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Question-answering-system"><span class="nav-number">2.5.2.3.</span> <span class="nav-text">Question answering system</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YuzhuJia</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">9.9k</span>
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+</body>
+</html>
